@@ -1,13 +1,5 @@
-*.DS_Store
-*lits_webapp.iml
 .git
-/.idea
-/.vagrant
 #/webapp/db_key.ini
 .DS_Store
-.gitignore
-.idea/
+/.idea/
 .vagrant/
-Vagrantfile
-config/
-
