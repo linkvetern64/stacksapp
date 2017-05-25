@@ -7,9 +7,9 @@ body{
     display: block;
     position: relative;
     width: 50%;
-    height: 900px;
+    height: auto;
     margin: 0 auto;
-    padding: 10px;
+    padding: 12px;
     border:1px solid black;
 }
 
@@ -36,4 +36,156 @@ body{
     box-shadow: 2px 2px 1px #FFFFFF;
     margin-left: 1px;
     margin-bottom:-1px;
+}
+
+.inline-btn{
+    display:inline-block;
+    position:relative;
+    right:0;
+    float:right;
+}
+
+.inline-btn.rej{
+    margin-right:4px;
+}
+
+.pc-id{
+    display:block;
+    position:relative;
+    left:0;
+    top:0;
+    float:left;
+    padding-top:2px;
+    padding-bottom:2px;
+    width:auto;
+    height:auto;
+}
+
+/*For mobile designs*/
+@media only screen and (max-width: 500px) {
+    body{
+        background-color: #F5CA5C;
+    }
+
+    /*Styles the container for the listings*/
+    #container{
+        background-color: white;
+        display: block;
+        position: relative;
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        padding: 12px;
+        border:1px solid black;
+    }
+
+    /*Styles the listings*/
+    .entry{
+        width: 100%;
+        height: 50px;
+        padding: 12px;
+        margin-top:15px;
+        border:1px solid #888888;
+        text-align:center;
+
+        /*Adds a round border to the entry div*/
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+
+        /*Adds a box-shadow to the entry div*/
+        box-shadow: 2px 2px 1px #888888;
+        display:block;
+        position:relative;
+    }
+
+    /*Styles the listings on hover*/
+    .entry:hover{
+        box-shadow: 2px 2px 1px #FFFFFF;
+        margin-left: 1px;
+        margin-bottom:-1px;
+    }
+
+    /*Styles the buttons*/
+    .inline-btn{
+        display:inline-block;
+        position:relative;
+        right:0;
+        float:right;
+    }
+
+    /*Moves the buttons by margin*/
+    .inline-btn.rej{
+        margin-right:10px;
+    }
+
+    /*Styles the PC label per listing*/
+    .pc-id{
+        display:block;
+        position:relative;
+        left:0;
+        top:0;
+        float:left;
+        padding-top:2px;
+        padding-bottom:2px;
+        height:100%;
+        width:40%;
+    }
+
+    /*Allocates space for the buttons per listing*/
+    #right{
+        display:block;
+        position:relative;
+        float:right;
+        right:0;
+        height:100%;
+        width:60%;
+    }
+}
+
+html,
+body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+    padding-top: 70px;
+}
+footer {
+    padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all .25s ease-out;
+        -o-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        width: 60%; /* 6 columns */
+        display: none;
+    }
+
+    .row-offcanvas-right {
+        right: 0;
+    }
+
+    .row-offcanvas-right.active
+    .sidebar-offcanvas {
+        display: block;
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    .row-offcanvas-right.active {
+
+    }
+
 }

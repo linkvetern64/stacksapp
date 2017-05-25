@@ -7,6 +7,29 @@
  */
 session_start();
 require_once(dirname(__FILE__) . '/../load.php');
+
+function populate(){
+    $db = new DB();
+    $db->testConnection();
+    $file = "stacks/LIB1.txt";
+    $handle = fopen($file, "r");
+    if ($handle) {
+        while (($line = fgets($handle)) !== false) {
+
+            echo "<div class=\"entry\">
+                     <div class=\"pc-id\">$line</div>
+                     <div id=\"right\">
+                        <button  type=\"button\" class=\"btn btn-danger btn-sm inline-btn\">Bad</button>
+                        <button  type=\"button\" class=\"btn btn-success btn-sm inline-btn rej\">Good</button>
+                    </div>
+                 </div>";
+        }
+        fclose($handle);
+    } else {
+        // error opening the file.
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +43,6 @@ require_once(dirname(__FILE__) . '/../load.php');
     <title>Stacks App</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >
 
-
-
     <!-- Bootstrap Core CSS -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,7 +52,7 @@ require_once(dirname(__FILE__) . '/../load.php');
 
     <!-- Theme CSS -->
     <!--<link href="css/styles.css" type="text/css" rel="stylesheet">-->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 
 
     <!-- Custom Fonts -->
@@ -66,26 +87,41 @@ require_once(dirname(__FILE__) . '/../load.php');
     </script>
 </head>
 <body>
-<div style="width:100%;text-align:center;font-size:2em;">Stacks Check</div>
-<hr>
-<div id="container">
-    <div class="entry"> Test</div>
-    <div class="entry"> Test</div>
-    <div class="entry"> Test</div>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">LITS Stacks App</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#home">Home</a></li>
+                <li><a href="#1st">1st</a></li>
+                <li><a href="#2nd">2nd</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Nav. Bar -->
+
+<!-- Title of page -->
+<div id="floorTitle" style="width:100%;text-align:center;font-size:2em;">First Floor</div>
+<br />
+
+<!-- Display Content -->
+<div id="container" class="container">
+    <?php populate(); ?>
 </div>
-<br>
-<?php
-$file = "export.csv";
-$handle = fopen($file, "r");
-if ($handle) {
-    while (($line = fgets($handle)) !== false) {
 
-    }
-
-    fclose($handle);
-} else {
-    // error opening the file.
-}
-?>
+<!-- Load scripts at the end -->
+<script src="js/parse.js"></script>
 </body>
+
+
 </html>
