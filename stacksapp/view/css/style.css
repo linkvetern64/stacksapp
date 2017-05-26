@@ -13,6 +13,17 @@ body{
     border:1px solid black;
 }
 
+#pageNav{
+    position:relative;
+    display:block;
+    bottom:0;
+    margin: 0 auto;
+    width:100%;
+    height:50px;
+    text-align:center;
+    padding:12px;
+}
+
 .entry{
     width: 100%;
     height: 50px;
@@ -31,11 +42,17 @@ body{
     display:block;
     position:relative;
 }
-
+/*
 .entry:hover{
     box-shadow: 2px 2px 1px #FFFFFF;
     margin-left: 1px;
     margin-bottom:-1px;
+}*/
+
+/* Fixes the modal to the center of the screen, horizontally aligned in the center */
+.fix-center{
+   position:fixed;
+   margin-top:50%;
 }
 
 .inline-btn{
@@ -63,6 +80,7 @@ body{
 
 li.center{
     text-align:center;
+
 }
 
 #floorTitle{

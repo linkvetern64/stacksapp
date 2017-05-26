@@ -57,9 +57,10 @@ require_once(dirname(__FILE__) . '/../load.php');
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
-            $( window ).on( "load", function() {
-                getStacksByFloor(1);
-            });
+            $('.modal')
+                .on('show.bs.modal', function() {
+                    populate(this.id);
+                });
 
             $(document).ready(function () {
                 $('[data-toggle="offcanvas"]').click(function () {
@@ -105,40 +106,14 @@ require_once(dirname(__FILE__) . '/../load.php');
 <!-- End Nav. Bar -->
 
 <!-- Title of page -->
-<div id="floorTitle">
-    <!-- Floor Title goes here... -->
-</div>
+<div id="floorTitle">First Floor</div>
 <br />
 
 <!-- Display Content -->
 <div id="container" class="container">
-    <!-- Content populates here... -->
-    <!-- Ajax to update session variable. Confirming on last page submits it all -->
+<!-- populate from computers of all floors -->
+    <!-- Section off by floor, add search -->
 </div>
-
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-<!-- Modal -->
-<div class="modal fade fix-center" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
 
 <!-- Footer Content -->
 <hr>
