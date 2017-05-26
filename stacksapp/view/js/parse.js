@@ -15,12 +15,23 @@ function getStacksByFloor(floor){
 }
 
 function stackSuccess(ajax){
-    console.log("Success!");
-    console.log(ajax.responseText);
-    JSON.parse()
 
+    var stacks = JSON.parse(ajax.responseText);
+
+    //Gets container to populate entry listings
+    var container = document.getElementById("container");
+
+    for(var i = 0; i < stacks.length; i++){
+        console.log(stacks[i])
+    }
 }
 
+/**
+ * stackFailure
+ * @param ajax - Response text from php file
+ * @desc:
+ * Calls if the AJAX fails to run, console output is printed
+ */
 function stackFailure(ajax){
     console.log("Error!");
     console.log(ajax.responseText);
