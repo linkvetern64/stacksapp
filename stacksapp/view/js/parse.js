@@ -2,6 +2,7 @@
  * Created by josh on 5/25/17.
  */
 var FLOOR;
+var data = [];
 
 function getStacksByFloor(floor){
     FLOOR = floor
@@ -36,12 +37,12 @@ function stackSuccess(ajax){
     /* Creates the children to be added to the list */
     for(var i = 0; i < stacks.length; i++){
         var entry = document.createElement('div');
-
+        var tag = stacks[i]["tag"]
         entry.className = 'entry';
-        entry.innerHTML = "<div class='pc-id'>" + stacks[i]["tag"] + "</div>" +
+        entry.innerHTML = "<div class='pc-id'>" + tag + "</div>" +
             "<div id='right'>" +
-            "<button  type='button' class='btn btn-danger btn-sm inline-btn'>Bad</button>" +
-            "<button  type='button' class='btn btn-success btn-sm inline-btn rej'>Good</button>" +
+            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"bad\");' class='btn btn-danger btn-sm inline-btn btn-align-right' data-toggle='modal' data-target='#myModal'>Bad</button>" +
+            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-success btn-sm inline-btn  rej btn-align-right'>Good</button>" +
             "</div>";
 
         container.appendChild(entry);
@@ -56,7 +57,7 @@ function stackSuccess(ajax){
     }
     else if(FLOOR > 1 && FLOOR < 7){
         nav.id = "pageNav";
-        nav.innerHTML = "<button onclick='getStacksByFloor(--FLOOR)'><span class='glyphicon glyphicon-arrow-left'></span></button>" +
+        nav.innerHTML = "<button class='navBtnMargin' onclick='getStacksByFloor(--FLOOR)'><span class='glyphicon glyphicon-arrow-left'></span></button>" +
             "<button onclick='getStacksByFloor(++FLOOR)'><span class='glyphicon glyphicon-arrow-right'></span></button>";
     }
     else if(FLOOR === 7){
@@ -96,4 +97,46 @@ function changePageTitle(){
     }
     name += " Floor";
     title.innerHTML = name;
+}
+
+function setData(tag, floor, type){
+    data = [];
+    data["tag"] = tag;
+    data["floor"] = floor;
+    data["type"] = type;
+
+    if(type === "good"){
+        submit()
+    }
+}
+
+function submit(){
+    var tag = data["tag"];
+    var floor = data["floor"];
+    var type = data["type"];
+
+    data = [];
+    var comment = document.getElementById("comment").value;
+    document.getElementById("comment").value = "";
+    new Ajax.Request( "storeSessionData.php",
+        {
+            method: "get",
+            parameters: {tag : tag,
+                         type : type,
+                         floor : floor,
+                         comment : comment},
+            onSuccess: submitSuccess,
+            onFailure: submitFailure
+        }
+    );
+}
+
+function submitSuccess(ajax){
+    console.log("Success")
+    console.log(ajax.responseText)
+}
+
+function submitFailure(ajax){
+    console.log("Error")
+    console.log(ajax.responseText)
 }
