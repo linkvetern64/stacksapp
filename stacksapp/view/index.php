@@ -7,29 +7,6 @@
  */
 session_start();
 require_once(dirname(__FILE__) . '/../load.php');
-
-function populate(){
-    $db = new DB();
-    $db->testConnection();
-    $file = "stacks/LIB1.txt";
-    $handle = fopen($file, "r");
-    if ($handle) {
-        while (($line = fgets($handle)) !== false) {
-
-            echo "<div class=\"entry\">
-                     <div class=\"pc-id\">$line</div>
-                     <div id=\"right\">
-                        <button  type=\"button\" class=\"btn btn-danger btn-sm inline-btn\">Bad</button>
-                        <button  type=\"button\" class=\"btn btn-success btn-sm inline-btn rej\">Good</button>
-                    </div>
-                 </div>";
-        }
-        fclose($handle);
-    } else {
-        // error opening the file.
-    }
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +31,6 @@ function populate(){
     <!--<link href="css/styles.css" type="text/css" rel="stylesheet">-->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 
-
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -74,6 +50,8 @@ function populate(){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">jQuery.noConflict();</script>
     <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
 
+    <!-- Boostrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
@@ -83,6 +61,12 @@ function populate(){
                 .on('show.bs.modal', function() {
                     populate(this.id);
                 });
+
+            $(document).ready(function () {
+                $('[data-toggle="offcanvas"]').click(function () {
+                    $('.row-offcanvas').toggleClass('active')
+                });
+            });
         });
     </script>
 </head>
@@ -91,7 +75,7 @@ function populate(){
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sub" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -99,25 +83,51 @@ function populate(){
             </button>
             <a class="navbar-brand" href="#">LITS Stacks App</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#home">Home</a></li>
-                <li><a href="#1st">1st</a></li>
-                <li><a href="#2nd">2nd</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">Check Reports</a></li>
+                <li><a href="#contact">Update Roster</a></li>
             </ul>
-        </div>
-    </div>
-</nav>
+        </div><!-- /.nav-collapse -->
+        <div id="sub" class="collapse">
+            <ul class="nav navbar-nav">
+                <li class="center"><a href="#1st">1st Floor</a></li>
+                <li class="center"><a href="#2nd">2nd Floor</a></li>
+                <li class="center"><a href="#3rd">3rd Floor</a></li>
+                <li class="center"><a href="#4th">4th Floor</a></li>
+                <li class="center"><a href="#5th">5th Floor</a></li>
+                <li class="center"><a href="#6th">6th Floor</a></li>
+                <li class="center"><a href="#7th">7th Floor</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
 <!-- End Nav. Bar -->
 
 <!-- Title of page -->
-<div id="floorTitle" style="width:100%;text-align:center;font-size:2em;">First Floor</div>
+<div id="floorTitle">First Floor</div>
 <br />
 
 <!-- Display Content -->
 <div id="container" class="container">
-    <?php populate(); ?>
+    <div class="entry">
+        <div class="pc-id">$line</div>
+        <div id="right">
+            <button  type="button" class="btn btn-danger btn-sm inline-btn">Bad</button>
+            <button  type="button" class="btn btn-success btn-sm inline-btn rej">Good</button>
+        </div>
+    </div>
+
+    <button onclick="getStacksByFloor(1)">Try me!</button>
 </div>
+
+<!-- Footer Content -->
+<hr>
+<footer style="text-align:center;font-size:.8em;">
+    <p>Created By: Joshua Standiford</p>
+</footer>
+
 
 <!-- Load scripts at the end -->
 <script src="js/parse.js"></script>

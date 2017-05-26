@@ -122,6 +122,26 @@ class DB {
         }
     }
 
+
+    public function getStacksByFloor($floor){
+        $table = "LITS_Stack_Computers";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT * FROM $table WHERE floor = '" . $floor . "'");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
+
+            return $result;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+    }
+
     /*
      * @param $ID
      * @return array|bool|string
