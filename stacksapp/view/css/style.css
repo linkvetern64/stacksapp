@@ -78,6 +78,7 @@ body{
     margin-right:2em;
 }
 
+/*Styles for listings for stacks check*/
 .pc-id{
     display:block;
     position:relative;
@@ -115,17 +116,18 @@ li.center{
     float:left;
 }
 
+/*Containers for inv-manager listings*/
 .stackListings{
     display:block;
     position: relative;
     margin:0 auto;
     width:100%;
     height:auto;
-    border:1px solid black;
     padding: 0 36px 36px 36px;
     text-align:center;
 }
 
+/*For inv-manager listings*/
 .stackLabel{
     display:inline-block;
     position: relative;
@@ -142,11 +144,39 @@ li.center{
     border-radius: 5px 5px 5px 5px;
 }
 
+/*Changes inv-manager listings color*/
 .stackLabel:hover{
     background-color:lightblue;
     cursor:pointer;
 
 }
+
+/*Dotted label for adding new labels to database*/
+.ghostLabel{
+    display:inline-block;
+    position: relative;
+    margin: 12px 5px auto;
+    border: 2px dotted;
+    height:50px;
+    width:18%;
+    padding-top:12px;
+    padding-bottom:12px;
+    font-weight:bold;
+
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+/*Used to make the glyphicons smaller and colored green*/
+.s-gr{
+    font-size:.8em;
+    color:#5cb85c;
+}
+
+
+
+
 /*For mobile designs*/
 @media only screen and (max-width: 767px) {
     body{
@@ -227,6 +257,18 @@ li.center{
         height:100%;
         width:45%;
     }
+
+    .stackListings{
+        display:block;
+        position: relative;
+        margin:0 auto;
+        width:100%;
+        height:auto;
+        padding: 0 36px 36px 36px;
+        text-align:center;
+        font-size:.8em;
+    }
+
 }
 
 html,
