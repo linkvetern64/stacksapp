@@ -13,6 +13,18 @@ body{
     border:1px solid black;
 }
 
+/*Container used on the inv-manager page for wider container format*/
+#container-inv{
+    background-color: white;
+    display: block;
+    position: relative;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 12px;
+    border:1px solid black;
+}
+
 #pageNav{
     position:relative;
     display:block;
@@ -97,11 +109,44 @@ li.center{
     position:relative;
     float:right;
 }
+
 .btn-align-left{
     position:relative;
     float:left;
 }
 
+.stackListings{
+    display:block;
+    position: relative;
+    margin:0 auto;
+    width:100%;
+    height:auto;
+    border:1px solid black;
+    padding: 0 36px 36px 36px;
+    text-align:center;
+}
+
+.stackLabel{
+    display:inline-block;
+    position: relative;
+    margin: 12px 5px auto;
+    border: 1px solid black;
+    height:50px;
+    width:18%;
+    padding-top:12px;
+    padding-bottom:12px;
+    font-weight:bold;
+
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.stackLabel:hover{
+    background-color:lightblue;
+    cursor:pointer;
+
+}
 /*For mobile designs*/
 @media only screen and (max-width: 767px) {
     body{

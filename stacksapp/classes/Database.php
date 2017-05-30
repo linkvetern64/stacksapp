@@ -13,7 +13,7 @@ class DB {
 	 *
 	 *
 	 */
-    function DB() {
+    function __construct() {
 
     }
 
@@ -66,34 +66,11 @@ class DB {
         }
     }
 
-    /*
-     * gitGuds
-     * Preconditions: $code
-     *
-     */
-    public function gitGuds($code){
-        $table = "services";
-        if(is_null($code)) return null;
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE type = '" . $code . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-    }
 
     public function testConnection(){
         return !is_null($this->connect());
     }
+
     /*
      * @param $ID
      * @return array|bool|string
@@ -142,148 +119,19 @@ class DB {
         }
     }
 
-    /*
-     * @param $ID
-     * @return array|bool|string
-     */
-    public function getMessageNo($ID){
-        $table = "user_accounts";
-        $ID = strtoupper($ID);
+
+    public function getStacks(){
+        $table = "LITS_Stack_Computers";
+
         try {
             $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE email = '" . $ID . "'");
+            $stmt = $conn->prepare("SELECT * FROM $table");
             $stmt->execute();
             $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            foreach ($result as $k => $v) {
-                return $v["messageNO"];
-            }
-
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-    }
-
-    public function getCampusID($ID){
-        $table = "user_accounts";
-        $ID = strtoupper($ID);
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE email = '" . $ID . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            foreach ($result as $k => $v) {
-                return $v["campusID"];
-            }
-
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-    }
-
-    public function getAllListings($ID){
-        //$ID will be books, electronics, food, services, events...
-        $table = "services";
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE `type` = '" . $ID . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
             $conn = null;
 
             return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-    }
-
-    public function getActiveListings($ID){
-        $table = "user_accounts";
-        $ID = strtoupper($ID);
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE email = '" . $ID . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            foreach ($result as $k => $v) {
-                $id = $v["campusID"];
-            }
-             
-            $table = "services";
-
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE campusID = '" . $id . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-            
-            $conn = null;
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-    }
-
-    /*
-     * @param $ID
-     * @return array|bool|string
-     */
-    public function entryExists($ID, $entry){
-        $table = "user_accounts";
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE " . $entry  . " = '" . $ID . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-    }
-
-    public function imageExists($id){
-        $table = "images";
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE ref = '" . $id . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-            if(sizeof($result) > 0) {
-                return true;
-            }
-            return false;
         }
         catch(PDOException $e){
             echo $e;
@@ -323,25 +171,6 @@ class DB {
         catch(PDOException $e){
             echo $e;
             return false;
-        }
-    }
-
-    public function getImage($id){
-        $table = "images";
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE ref = '" . $id . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
         }
     }
 
@@ -404,27 +233,6 @@ class DB {
             return false;
         }
 
-    }
-
-    public function getItemTotal(){
-        $table = "services";
-
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare(" SELECT * FROM $table ORDER BY itemID DESC LIMIT 1");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-       
     }
 
     public function submit($data){

@@ -57,15 +57,8 @@ require_once(dirname(__FILE__) . '/../load.php');
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
-            $('.modal')
-                .on('show.bs.modal', function() {
-                    populate(this.id);
-                });
-
-            $(document).ready(function () {
-                $('[data-toggle="offcanvas"]').click(function () {
-                    $('.row-offcanvas').toggleClass('active')
-                });
+            $( window ).on( "load", function() {
+                populateInventory();
             });
         });
     </script>
@@ -106,11 +99,59 @@ require_once(dirname(__FILE__) . '/../load.php');
 <!-- End Nav. Bar -->
 
 <!-- Title of page -->
-<div id="floorTitle">First Floor</div>
+<div id="floorTitle">Inventory Manager</div>
 <br />
 
 <!-- Display Content -->
-<div id="container" class="container">
+<div id="container-inv" class="container" style="text-align:center;">
+    <span style="font-size:2em;">1st Floor</span>
+    <hr/>
+    <div id="floorOne" class="stackListings">
+        <!-- Content here -->
+
+    </div>
+    <br/>
+    <span style="font-size:2em;">2nd Floor</span>
+    <hr/>
+    <div id="floorTwo" class="stackListings">
+        <!-- Content here -->
+    </div>
+
+    <br/>
+    <span style="font-size:2em;">3rd Floor</span>
+    <hr/>
+    <div id="floorThree" class="stackListings">
+        <!-- Content here -->
+    </div>
+
+    <br/>
+    <span style="font-size:2em;">4th Floor</span>
+    <hr/>
+    <div id="floorFour" class="stackListings">
+        <!-- Content here -->
+    </div>
+
+    <br/>
+    <span style="font-size:2em;">5th Floor</span>
+    <hr/>
+    <div id="floorFive" class="stackListings">
+        <!-- Content here -->
+    </div>
+
+    <br/>
+    <span style="font-size:2em;">6th Floor</span>
+    <hr/>
+    <div id="floorSix" class="stackListings">
+        <!-- Content here -->
+    </div>
+
+    <br/>
+    <span style="font-size:2em;">7th Floor</span>
+    <hr/>
+    <div id="floorSeven" class="stackListings">
+        <!-- Content here -->
+    </div>
+
 <!-- populate from computers of all floors -->
     <!-- Section off by floor, add search -->
 </div>
@@ -123,8 +164,6 @@ require_once(dirname(__FILE__) . '/../load.php');
 
 
 <!-- Load scripts at the end -->
-<script src="js/parse.js"></script>
+<script src="js/inv-manager.js"></script>
 </body>
-
-
 </html>
