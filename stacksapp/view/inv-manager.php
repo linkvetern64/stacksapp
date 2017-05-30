@@ -98,6 +98,8 @@ if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
                 <li><a href="index.php">Home</a></li>
                 <li><a href="#about">Check Reports</a></li>
                 <li><a href="inv-manager.php">Update Roster</a></li>
+                <li><a href="tickets.php">Tickets</a></li>
+
             </ul>
         </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
@@ -120,7 +122,7 @@ if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
 <br />
 
 <!-- Display Content -->
-<div id="container-inv" class="container" style="text-align:center;">
+<div id="container-inv" class="container">
     <span class="inv-title">1st Floor</span>
     <hr/>
     <div id="floorOne" class="stackListings">

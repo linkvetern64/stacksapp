@@ -2,6 +2,8 @@ body{
     background-color: #F5CA5C;
 }
 
+
+/*For index.php*/
 #container{
     background-color: white;
     display: block;
@@ -14,16 +16,6 @@ body{
 }
 
 /*Container used on the inv-manager page for wider container format*/
-#container-inv{
-    background-color: white;
-    display: block;
-    position: relative;
-    width: 70%;
-    height: auto;
-    margin: 0 auto;
-    padding: 12px;
-    border:1px solid black;
-}
 
 #pageNav{
     position:relative;
@@ -115,6 +107,22 @@ li.center{
     position:relative;
     float:left;
 }
+/* end index.php */
+
+/***************************************/
+
+/*For inv-manager.php*/
+#container-inv{
+    background-color: white;
+    display: block;
+    position: relative;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 12px;
+    border:1px solid black;
+    text-align:center;
+}
 
 /*Containers for inv-manager listings*/
 .stackListings{
@@ -205,6 +213,27 @@ li.center{
 .inv-title{
     font-size:2em;
 }
+
+/*end inv-manager.php*/
+
+/***************************************/
+
+/*For tickets.php*/
+#container-tickets{
+    background-color: white;
+    display: block;
+    position: relative;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 12px;
+    border:1px solid black;
+    text-align:center;
+}
+
+/*End tickets.php*/
+
+/***************************************/
 
 /*For mobile designs*/
 @media only screen and (max-width: 767px) {
@@ -310,6 +339,8 @@ body {
 footer {
     padding: 30px 0;
 }
+
+/***************************************/
 
 /*
  * Off Canvas
