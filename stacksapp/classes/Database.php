@@ -100,6 +100,26 @@ class DB {
     }
 
 
+    public function removeItem($id){
+        //Remove image from images too.
+        $table = "LITS_Stack_Computers";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("DELETE FROM $table WHERE `tag`='" . $id . "'");
+            $stmt->execute();
+
+            $conn = null;
+
+            return true;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+
+    }
+
     public function getStacksByFloor($floor){
         $table = "LITS_Stack_Computers";
 
@@ -174,54 +194,20 @@ class DB {
         }
     }
 
-    public function removeItem($id){
-        //Remove image from images too.
-        $table = "services";
-
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("DELETE FROM services WHERE `unique`='" . $id . "'");
-            $stmt->execute();
-
-            $stmt = $conn->prepare("DELETE FROM images WHERE ref='" . $id . "'");
-            $stmt->execute();
-
-
-            $conn = null;
-
-            return true;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-
-    }
 
     public function addItem($data){
-        $table = "services";
+        $table = "LITS_Stack_Computers";
 
         try {
             $conn = $this->connect();
 
-            $stmt = $conn->prepare("INSERT INTO services (campusID, type, good, price, meta, `unique`, `desc`)
-                                VALUES (:campusID, :type, :good, :price, :meta, :unique, :desc)");
-            $stmt->bindParam(':campusID', $campusID);
-            $stmt->bindParam(':type', $type);
-            $stmt->bindParam(':good', $good);
-            $stmt->bindParam(':price', $price);
-            $stmt->bindParam(':meta', $meta);
-            $stmt->bindParam(':unique', $unique);
-            $stmt->bindParam(':desc', $desc);
+            $stmt = $conn->prepare("INSERT INTO $table (tag, floor)
+                                VALUES (:tag, :floor)");
+            $stmt->bindParam(':tag', $tag);
+            $stmt->bindParam(':floor', $floor);
 
-
-            $campusID = strtoupper($data["campusID"]);
-            $type = $data["type"];
-            $good = $data["good"];
-            $price = $data["price"];
-            $meta = $data["meta"];
-            $unique = $campusID . "_" . $data["nextIt"];
-            $desc = $data["desc"];
+            $tag = $data["tag"];
+            $floor = $data["floor"];
 
             $stmt->execute();
 

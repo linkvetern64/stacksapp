@@ -7,6 +7,13 @@
  */
 session_start();
 require_once(dirname(__FILE__) . '/../load.php');
+
+//these variables come in through Shibboleth
+$firstName = $_SERVER['givenName'];
+$lastName = $_SERVER['sn'];
+$fullName = $_SERVER['displayName'];
+$mail = $_SERVER['mail'];
+$campusID = $_SERVER['umbccampusid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

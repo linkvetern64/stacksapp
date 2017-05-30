@@ -1,6 +1,7 @@
 /**
  * Created by josh on 5/30/17.
  */
+
 function populateInventory(){
     new Ajax.Request( "populateInventory.php",
         {
@@ -36,6 +37,13 @@ function populateSuccess(ajax) {
         var tag = stacks[j]["tag"];
         entry.className = 'stackLabel';
         entry.innerHTML = tag;
+            /*
+            "<div class='labelTitle'>" + tag + "</div>" +
+            "<div class='tools'>" +
+            "<span class='glyphicon glyphicon-minus' style='color:#d9534f' onclick='edit(\"" + tag + "\", \"delete\")'></span>" +
+            "<span class='glyphicon glyphicon-pencil' style='color:#337ab7' onclick='edit(\"" + tag + "\", \"update\")'></span>" +
+            "</div>";*/
+
 
         container.appendChild(entry);
     }
@@ -64,5 +72,84 @@ function populateFailure(ajax){
  * @description Will be used for adding new elements to the inventory management table
  */
 function updateListings(value){
-    console.log("Floor : " + value.dataFloor + " ID = " + value.id + " Parent : " + value.parentNode.id)
+    //Update modal here
+    var floor = value.dataFloor;
+    document.getElementById("myModalBtn").onclick = function() {submitNewLabels(floor)}
+}
+
+function edit(ID, type){
+    new Ajax.Request( "editInventory.php",
+        {
+            method: "get",
+            parameters:{ID : ID,
+                        type: type},
+            onSuccess: editSuccess,
+            onFailure: editFailure
+        }
+    );
+}
+
+function editSuccess(ajax){
+    console.log("SUCCESS");
+    console.log(ajax.responseText);
+    populateInventory()
+}
+
+function editFailure(ajax){
+    console.log("FAILURE");
+    console.log(ajax.responseText);
+}
+
+/* get the labels from the modal in inv-manager */
+function submitNewLabels(floor){
+    var labels = document.getElementById("newLabel").value;
+    var tags;
+
+    /**
+     * Change this to make it more robust
+     */
+
+    if(labels.includes(";")){
+        tags = labels.split(";");
+    }
+    else if(labels.includes(",")){
+        tags = labels.split(",");
+    }
+    else if(labels.includes(" ")){
+        tags = labels.split(" ");
+    }
+    else{
+        new Ajax.Request( "editInventory.php",
+            {
+                method: "get",
+                parameters:{floor : floor,
+                    type: "add",
+                    ID : labels},
+                onSuccess: submitSuccess,
+                onFailure: submitFailure
+            }
+        );
+        return;
+    }
+
+    new Ajax.Request( "editInventory.php",
+        {
+            method: "get",
+            parameters:{floor : floor,
+                        type: "add",
+                        tags : JSON.stringify(tags)},
+            onSuccess: submitSuccess,
+            onFailure: submitFailure
+        }
+    );
+}
+
+function submitSuccess(ajax){
+    console.log("Success!");
+    populateInventory();
+}
+
+function submitFailure(ajax){
+    console.log("ERROR");
+    console.log(ajax.responseText);
 }

@@ -174,8 +174,37 @@ li.center{
     color:#5cb85c;
 }
 
+/*Title for listings populated on inv-manager*/
+.labelTitle{
+    position: relative;
+    display: inline-block;
+    width:50%;
+}
 
+/* Contains the glyphicons to delete or edit listings */
+.tools{
+    position: relative;
+    display: inline-block;
+    float:right;
+    width:15%;
+    margin-top:-10px;
+    visibility: hidden;
+}
 
+/* Adds on hover visiblity for tool sections in listings */
+.stackLabel:hover .tools{
+    visibility: visible;
+}
+
+#newLabel{
+    width:100%;
+    height:auto;
+    resize:none;
+}
+
+.inv-title{
+    font-size:2em;
+}
 
 /*For mobile designs*/
 @media only screen and (max-width: 767px) {
