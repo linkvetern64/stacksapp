@@ -89,10 +89,24 @@ $campusID = $_SERVER['umbccampusid'];
                 <li><a href="inv-manager.php">Update Roster</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
                 <li><a href="stacksCheck.php">New Report</a></li>
+                <li><a href="issueArchive.php">Archive</a></li>
+                <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+        <div id="sub" class="collapse">
+            <ul class="nav navbar-nav">
+                <li class="center"><a href="#1st">1st Floor</a></li>
+                <li class="center"><a href="#2nd">2nd Floor</a></li>
+                <li class="center"><a href="#3rd">3rd Floor</a></li>
+                <li class="center"><a href="#4th">4th Floor</a></li>
+                <li class="center"><a href="#5th">5th Floor</a></li>
+                <li class="center"><a href="#6th">6th Floor</a></li>
+                <li class="center"><a href="#7th">7th Floor</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
+
 <!-- End Nav. Bar -->
 
 <!-- Title of page -->

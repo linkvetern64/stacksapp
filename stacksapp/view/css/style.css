@@ -150,13 +150,15 @@ li.center{
     -webkit-border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
+
+    box-shadow: 5px 5px 1px #CCC;
 }
 
 /*Changes inv-manager listings color*/
 .stackLabel:hover{
-    background-color:lightblue;
     cursor:pointer;
-
+    width:20%;
+    font-size:1.1em;
 }
 
 /*Dotted label for adding new labels to database*/
@@ -273,17 +275,16 @@ li.center{
     width:100%;
     /*height:60%;*/
     height:auto;
-    padding:10px 0 0 5px;
+    padding:10px;
     overflow: hidden;
 }
 
 .ticket-actions{
     position: relative;
     display: block;
-    bottom:0;
     width:100%;
-    height:auto;
-    padding: 10px;
+    height:40px;
+    padding: 3px 5px 1px 5px;
 }
 /*End tickets.php*/
 
