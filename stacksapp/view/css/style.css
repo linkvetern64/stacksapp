@@ -228,9 +228,63 @@ li.center{
     margin: 0 auto;
     padding: 12px;
     border:1px solid black;
-    text-align:center;
+
 }
 
+.ticket-listing{
+    position: relative;
+    display: inline-block;
+    /*height:200px;*/
+    height:auto;
+    width:18%;
+    border:1px solid black;
+    margin-left:13px;
+    margin-bottom:13px;
+    min-width:165px;
+
+    /*Adds a round border to the entry div*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    /*Adds a box-shadow to the entry div*/
+    box-shadow: 5px 5px 1px #CCC;
+
+}
+.ticket-title{
+    position: relative;
+    display: block;
+    top:0;
+    left:0;
+    border-bottom:1px solid black;
+    width:100%;
+    height:20%;
+    text-align:center;
+    padding: 10px 0 10px 0;
+    background-color:#d9534f;
+}
+
+.ticket-body{
+    position: relative;
+    display: block;
+    top:0;
+    left:0;
+    border-bottom:1px solid black;
+    width:100%;
+    /*height:60%;*/
+    height:auto;
+    padding:10px 0 0 5px;
+    overflow: hidden;
+}
+
+.ticket-actions{
+    position: relative;
+    display: block;
+    bottom:0;
+    width:100%;
+    height:auto;
+    padding: 10px;
+}
 /*End tickets.php*/
 
 /***************************************/

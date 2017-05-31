@@ -88,6 +88,7 @@ if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
                 <li><a href="#about">Check Reports</a></li>
                 <li><a href="inv-manager.php">Update Roster</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
+                <li><a href="stacksCheck.php">New Report</a></li>
 
             </ul>
         </div><!-- /.nav-collapse -->
@@ -107,12 +108,84 @@ if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
 <!-- End Nav. Bar -->
 
 <!-- Title of page -->
-<div id="floorTitle">Inventory Manager</div>
+<div id="floorTitle">Computer Issues</div>
 <br />
 
 <!-- Display Content -->
 <div id="container-tickets" class="container">
 <!-- Ticket container here -->
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">test</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">test</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">test</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ligula turpis, pulvinar sed lacinia eu, venenatis vel sapien. Mauris et nisl non odio sodales eleifend vel a dui. Morbi rutrum urna non aliquet tempor. Phasellus bibendum vehicula massa. Praesent at metus sit amet lorem pellentesque dapibus. Suspendisse et ullamcorper ante. Curabitur nec eros arcu. Donec a ornare felis.</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">test</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">test</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ligula turpis, pulvinar sed lacinia eu, venenatis vel sapien. Mauris et nisl non odio sodales eleifend vel a dui. Morbi rutrum urna non aliquet tempor. Phasellus bibendum vehicula massa. Praesent at metus sit amet lorem pellentesque dapibus. Suspendisse et ullamcorper ante. Curabitur nec eros arcu. Donec a ornare felis.</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ligula turpis, pulvinar sed lacinia eu, venenatis vel sapien. Mauris et nisl non odio sodales eleifend vel a dui.</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
+    <div class="ticket-listing">
+        <div class="ticket-title">LIB1PC01</div>
+        <div class="ticket-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ligula turpis, pulvinar sed lacinia eu, venenatis vel sapien. Mauris et nisl non odio sodales eleifend vel a dui.</div>
+        <div class="ticket-actions">
+            <button class="btn btn-info btn-align-left">Assign</button>
+            <button class="btn btn-success btn-align-right">Resolve</button>
+        </div>
+    </div>
 
 </div>
 

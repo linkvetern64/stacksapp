@@ -99,6 +99,7 @@ if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
                 <li><a href="#about">Check Reports</a></li>
                 <li><a href="inv-manager.php">Update Roster</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
+                <li><a href="stacksCheck.php">New Report</a></li>
 
             </ul>
         </div><!-- /.nav-collapse -->

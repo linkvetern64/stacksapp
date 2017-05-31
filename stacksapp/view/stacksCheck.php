@@ -1,9 +1,9 @@
 <?php
 /**
- * Created by:
- * User: Josh
- * Date: 4/29/2017
- * Time: 6:58 PM
+ * Created by IntelliJ IDEA.
+ * User: josh
+ * Date: 5/31/17
+ * Time: 10:14 AM
  */
 session_start();
 require_once(dirname(__FILE__) . '/../load.php');
@@ -64,8 +64,15 @@ $campusID = $_SERVER['umbccampusid'];
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
+            $( window ).on( "load", function() {
+                getStacksByFloor(1);
+            });
 
-
+            $(document).ready(function () {
+                $('[data-toggle="offcanvas"]').click(function () {
+                    $('.row-offcanvas').toggleClass('active')
+                });
+            });
         });
     </script>
 </head>
@@ -89,6 +96,18 @@ $campusID = $_SERVER['umbccampusid'];
                 <li><a href="inv-manager.php">Update Roster</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
                 <li><a href="stacksCheck.php">New Report</a></li>
+
+            </ul>
+        </div><!-- /.nav-collapse -->
+        <div id="sub" class="collapse">
+            <ul class="nav navbar-nav">
+                <li class="center" data-toggle="collapse" data-target="#sub"><a href="#1st" onclick="getStacksByFloor(1)">1st Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub"><a href="#2nd" onclick="getStacksByFloor(2)">2nd Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub"><a href="#3rd" onclick="getStacksByFloor(3)">3rd Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub"><a href="#4th" onclick="getStacksByFloor(4)">4th Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub"><a href="#5th" onclick="getStacksByFloor(5)">5th Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub"><a href="#6th" onclick="getStacksByFloor(6)">6th Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub"><a href="#7th" onclick="getStacksByFloor(7)">7th Floor</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
@@ -96,14 +115,36 @@ $campusID = $_SERVER['umbccampusid'];
 <!-- End Nav. Bar -->
 
 <!-- Title of page -->
-<div id="floorTitle">Dashboard</div>
+<div id="floorTitle">
+    <!-- Floor Title goes here... -->
+</div>
 <br />
 
 <!-- Display Content -->
 <div id="container" class="container">
     <!-- Content populates here... -->
-
+    <!-- Ajax to update session variable. Confirming on last page submits it all -->
 </div>
+
+<!-- Modal -->
+<div class="modal fade fix-center" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Describe the issue:</h4>
+            </div>
+            <div class="modal-body">
+                <textarea id="comment" style="min-width:100%;" placeholder="Enter text here..."></textarea>
+            </div>
+            <div class="modal-footer" style="text-align:center;">
+                <button type="button" onclick="submit();" class="btn btn-info" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Footer Content -->
 <hr>
