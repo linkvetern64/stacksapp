@@ -7,6 +7,7 @@
  */
 session_start();
 require_once(dirname(__FILE__) . '/../load.php');
+ini_set("allow_url_fopen", 1);
 
 //these variables come in through Shibboleth
 $firstName = $_SERVER['givenName'];
@@ -65,6 +66,10 @@ $campusID = $_SERVER['umbccampusid'];
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
 
+            //Loads JSON data on browser load
+            $(window).on("load", function () {
+
+            });
 
         });
     </script>
@@ -116,7 +121,11 @@ $campusID = $_SERVER['umbccampusid'];
 <!-- Display Content -->
 <div id="container" class="container">
     <!-- Content populates here... -->
+    <?php
+    $json = file_get_contents('http://library.umbc.edu/signage/availability/computer_availability.php?json');
+    echo $json;
 
+    ?>
 </div>
 
 <!-- Footer Content -->
@@ -127,7 +136,7 @@ $campusID = $_SERVER['umbccampusid'];
 
 
 <!-- Load scripts at the end -->
-<script src="js/parse.js"></script>
+<script src="js/dashboard.js"></script>
 </body>
 
 
