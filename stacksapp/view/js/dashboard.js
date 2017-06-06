@@ -12,11 +12,8 @@ function loadData(){
 }
 
 function dataSuccess(ajax){
-    console.log("Success");
-    console.log(ajax.responseText)
     var stacks = JSON.parse(ajax.responseText);
-    console.log(stacks);
-    document.getElementById("broken").innerHTML = "# of broken computers" + stacks.length;
+    document.getElementById("broken").innerHTML = "No. of broken computers: " + stacks.length;
 }
 
 function dataFailure(ajax){
