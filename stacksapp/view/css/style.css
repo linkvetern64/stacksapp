@@ -2,7 +2,10 @@ body{
     background-color: #F5CA5C;
 }
 
-/* Generic classes for Glyphicons*/
+
+
+
+/* -------------------------- For Generic classes for Glyphicons -------------------------- */
 .leftTopRed{
     position:relative;
     display:inline-block;
@@ -21,8 +24,41 @@ body{
     font-size:1.1em;
 }
 /* Generic classes for Glyphicons */
+/* -------------------------- End Generic classes for Glyphicons -------------------------- */
 
-/*For index.php*/
+
+
+
+
+
+
+
+/* -------------------------- For index.php -------------------------- */
+
+#container-dash{
+    background-color: white;
+    display: block;
+    position: relative;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 12px;
+    border:1px solid black;
+}
+
+
+
+/* -------------------------- End index.php -------------------------- */
+
+
+
+
+
+
+
+
+
+/* -------------------------- For stacksCheck.php -------------------------- */
 #container{
     background-color: white;
     display: block;
@@ -120,11 +156,16 @@ li.center{
     position:relative;
     float:left;
 }
-/* end index.php */
+/* -------------------------- end index.php -------------------------- */
 
-/***************************************/
 
-/*For inv-manager.php*/
+
+
+
+
+
+
+/* -------------------------- For inv-manager.php -------------------------- */
 #container-inv{
     background-color: white;
     display: block;
@@ -260,11 +301,15 @@ li.center{
     font-size:2em;
 }
 
-/*end inv-manager.php*/
+/* -------------------------- end inv-manager.php -------------------------- */
 
-/***************************************/
 
-/*For tickets.php*/
+
+
+
+
+
+/* -------------------------- For tickets.php -------------------------- */
 #container-tickets{
     background-color: white;
     display: block;
@@ -297,6 +342,7 @@ li.center{
     box-shadow: 5px 5px 1px #CCC;
 
 }
+
 .ticket-title{
     position: relative;
     display: block;
@@ -330,11 +376,17 @@ li.center{
     height:40px;
     padding: 3px 5px 1px 5px;
 }
-/*End tickets.php*/
+/* -------------------------- End tickets.php -------------------------- */
 
-/***************************************/
 
-/*For mobile designs*/
+
+
+
+
+
+
+
+/* -------------------------- For mobile designs -------------------------- */
 @media only screen and (max-width: 767px) {
     body{
         background-color: #F5CA5C;
@@ -439,8 +491,6 @@ footer {
     padding: 30px 0;
 }
 
-/***************************************/
-
 /*
  * Off Canvas
  * --------------------------------------------------
@@ -485,3 +535,5 @@ footer {
         width: 60%; /* 6 columns */
     }
 }
+
+/* -------------------------- End mobile designs -------------------------- */

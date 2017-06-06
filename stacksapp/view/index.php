@@ -68,7 +68,7 @@ $campusID = $_SERVER['umbccampusid'];
 
             //Loads JSON data on browser load
             $(window).on("load", function () {
-
+                loadData();
             });
 
         });
@@ -119,13 +119,9 @@ $campusID = $_SERVER['umbccampusid'];
 <br />
 
 <!-- Display Content -->
-<div id="container" class="container">
+<div id="container-dash" class="container">
     <!-- Content populates here... -->
-    <?php
-    $json = file_get_contents('http://library.umbc.edu/signage/availability/computer_availability.php?json');
-    echo $json;
-
-    ?>
+    <div id="broken"></div>
 </div>
 
 <!-- Footer Content -->

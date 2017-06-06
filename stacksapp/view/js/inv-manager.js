@@ -2,6 +2,12 @@
  * Created by josh on 5/30/17.
  */
 
+/**
+ * populateInventory
+ * @desc
+ * On call this function will return the inventory of computers listed in the database
+ * as AJAX responseText
+ */
 function populateInventory(){
     new Ajax.Request( "populateInventory.php",
         {
@@ -12,6 +18,12 @@ function populateInventory(){
     );
 }
 
+/**
+ * populateSuccess
+ * @param ajax - AJAX responseText
+ * @desc
+ *
+ */
 function populateSuccess(ajax) {
 
     var floors = ["floorOne", "floorTwo", "floorThree", "floorFour", "floorFive", "floorSix", "floorSeven"];
@@ -63,6 +75,13 @@ function populateFailure(ajax){
     console.log(ajax.responseText);
 }
 
+/**
+ * deleteListing
+ * @param tag - the tag to be removed from the database
+ * @desc:
+ * The tag is passed into an edit function AJAX call which sends the tag and command
+ * "delete" via GET to editInventory.php.  That file then removes the TAG from the database.
+ */
 function deleteListing(tag){
     if(confirm("Confirm delete for " + tag + "?")){
         edit(tag, "delete");
@@ -80,6 +99,14 @@ function updateListings(value){
     document.getElementById("myModalBtn").onclick = function() {submitNewLabels(floor)}
 }
 
+/**
+ * @name edit
+ * @param ID - TAG of computer you want to remove
+ * @param type - Command you want to perform e.g. "delete"; "update"; "add"...
+ * @desc
+ * Once edit is called an AJAX call connects with editInventory.php where ID (tag) and type are sent.
+ * The PHP file then interacts with the database.  On success editSuccess is called.
+ */
 function edit(ID, type){
     new Ajax.Request( "editInventory.php",
         {
@@ -92,17 +119,38 @@ function edit(ID, type){
     );
 }
 
+/**
+ * editSuccess
+ * @param ajax - responseText from editInventory.php
+ * @desc
+ * On successful response the table is reloaded for inv-manager.php
+ * allowing dynamic updates of the table.
+ */
 function editSuccess(ajax){
     console.log(ajax.responseText);
     populateInventory();
 }
 
+/**
+ * editFailure
+ * @param ajax - responseText from editInventory.php
+ * @desc
+ * On failure the error is printed to the console.
+ */
 function editFailure(ajax){
     console.log("FAILURE");
     console.log(ajax.responseText);
 }
 
-/* get the labels from the modal in inv-manager */
+/**
+ * submitNewLabels
+ * @param floor - The floor you want to update the labels for
+ * @desc
+ * The tags are removed from the inv-manager popup modal and parsed for ';'
+ * if a single entry is added then that is simply sent to editInventory.php
+ * for addition.  If however the list is separated by (;) then that's is parsed and
+ * each entry is added independently.
+ */
 function submitNewLabels(floor){
     var labels = document.getElementById("newLabel").value;
     var tags;
@@ -146,6 +194,12 @@ function submitNewLabels(floor){
     );
 }
 
+/**
+ * submitSuccess
+ * @param ajax - responseText from editInventory.php
+ * @desc
+ * On success inventory is reloaded on the page.
+ */
 function submitSuccess(ajax){
     console.log("Success!");
     populateInventory();
