@@ -129,6 +129,4 @@ $campusID = $_SERVER['umbccampusid'];
 <!-- Load scripts at the end -->
 <script src="js/parse.js"></script>
 </body>
-
-
 </html>

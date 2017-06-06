@@ -36,14 +36,11 @@ function populateSuccess(ajax) {
         var entry = document.createElement('div');
         var tag = stacks[j]["tag"];
         entry.className = 'stackLabel';
-        entry.innerHTML = tag;
-            /*
-            "<div class='labelTitle'>" + tag + "</div>" +
-            "<div class='tools'>" +
-            "<span class='glyphicon glyphicon-minus' style='color:#d9534f' onclick='edit(\"" + tag + "\", \"delete\")'></span>" +
-            "<span class='glyphicon glyphicon-pencil' style='color:#337ab7' onclick='edit(\"" + tag + "\", \"update\")'></span>" +
-            "</div>";*/
-
+        entry.innerHTML =
+            "<div class='underlay leftTopRed '>" +
+            "<span class='glyphicon glyphicon-remove' onclick='deleteListing(\"" + tag + "\")'></span>" +
+            "</div>" +
+            "<div class='labelTitle'>" + tag + "</div>";
 
         container.appendChild(entry);
     }
@@ -64,6 +61,12 @@ function populateSuccess(ajax) {
 function populateFailure(ajax){
     console.log("ERROR");
     console.log(ajax.responseText);
+}
+
+function deleteListing(tag){
+    if(confirm("Confirm delete for " + tag + "?")){
+        edit(tag, "delete");
+    }
 }
 
 /**
@@ -90,9 +93,8 @@ function edit(ID, type){
 }
 
 function editSuccess(ajax){
-    console.log("SUCCESS");
     console.log(ajax.responseText);
-    populateInventory()
+    populateInventory();
 }
 
 function editFailure(ajax){
