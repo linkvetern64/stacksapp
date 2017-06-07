@@ -40,13 +40,21 @@ body{
     display: block;
     position: relative;
     width: 70%;
-    height: auto;
+    height: 400px;
     margin: 0 auto;
     padding: 12px;
     border:1px solid black;
 }
 
-
+.statBox{
+    display:inline-block;
+    position:relative;
+    height:auto;
+    width:20%;
+    border:1px solid black;
+    padding:12px;
+    float:right;
+}
 
 /* -------------------------- End index.php -------------------------- */
 
@@ -186,7 +194,7 @@ li.center{
     margin:0 auto;
     width:100%;
     height:auto;
-    padding: 0 36px 36px 36px;
+    padding:0 0 36px 36px;
     text-align:center;
 }
 

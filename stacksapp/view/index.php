@@ -121,7 +121,9 @@ $campusID = $_SERVER['umbccampusid'];
 <!-- Display Content -->
 <div id="container-dash" class="container">
     <!-- Content populates here... -->
-    <div id="broken"></div>
+    <div class="statBox">
+        <div id="broken"></div>
+    </div>
 </div>
 
 <!-- Footer Content -->
