@@ -54,6 +54,9 @@ body{
     border:1px solid black;
     padding:12px;
     float:right;
+
+    /*Adds a box-shadow to the entry div*/
+    box-shadow: 5px 5px 1px #CCC;
 }
 
 /* -------------------------- End index.php -------------------------- */
