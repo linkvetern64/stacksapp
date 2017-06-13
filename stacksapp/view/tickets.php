@@ -83,7 +83,7 @@ if(!isMobile($_SERVER["HTTP_USER_AGENT"])){
                 <li><a href="#about">Check Reports</a></li>
                 <li><a href="inv-manager.php">Update Roster</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
-                <li><a href="stacksCheck.php">New Report</a></li>
+                <li><a href="stackReports.php">New Report</a></li>
                 <li><a href="issueArchive.php">Archive</a></li>
                 <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
             </ul>

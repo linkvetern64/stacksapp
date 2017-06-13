@@ -68,6 +68,48 @@ body{
 
 
 
+/* -------------------------- For stackReports.php -------------------------- */
+
+#container-stack-reports{
+    background-color: white;
+    display: block;
+    position: relative;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    padding: 12px;
+    border:1px solid black;
+}
+
+
+.report-date{
+    display:block;
+    position:relative;
+    padding:5px;
+    margin:0 auto 20px auto;
+    width:100%;
+    height:auto;
+    text-align:center;
+    border:1px solid black;
+    box-shadow: 5px 5px 1px #CCC;
+    cursor:pointer;
+}
+
+.hr-higher{
+    margin-top:-2px;
+}
+
+@media only screen and (max-width: 767px) {
+    #container-stack-reports{
+        width: 90%;
+    }
+}
+
+/* -------------------------- End stackReports.php -------------------------- */
+
+
+
+
 
 /* -------------------------- For stacksCheck.php -------------------------- */
 #container{
@@ -167,7 +209,7 @@ li.center{
     position:relative;
     float:left;
 }
-/* -------------------------- end index.php -------------------------- */
+/* -------------------------- end stacksCheck.php -------------------------- */
 
 
 

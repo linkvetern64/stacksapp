@@ -1,13 +1,12 @@
 <?php
 /**
- * Created by:
- * User: Josh
- * Date: 4/29/2017
- * Time: 6:58 PM
+ * Created by IntelliJ IDEA.
+ * User: josh
+ * Date: 6/13/17
+ * Time: 3:16 PM
  */
 session_start();
 require_once(dirname(__FILE__) . '/../load.php');
-ini_set("allow_url_fopen", 1);
 
 //these variables come in through Shibboleth
 $firstName = $_SERVER['givenName'];
@@ -65,12 +64,9 @@ $campusID = $_SERVER['umbccampusid'];
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
-
-            //Loads JSON data on browser load
-            $(window).on("load", function () {
-                loadData();
+            $( window ).on( "load", function() {
+                getArchives(6, 2017);
             });
-
         });
     </script>
 </head>
@@ -111,19 +107,28 @@ $campusID = $_SERVER['umbccampusid'];
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
-
 <!-- End Nav. Bar -->
 
 <!-- Title of page -->
-<div id="floorTitle">Dashboard</div>
+<div id="floorTitle">
+    Stack Reports
+</div>
 <br />
 
 <!-- Display Content -->
-<div id="container-dash" class="container">
+<div id="container-stack-reports" class="container">
     <!-- Content populates here... -->
-    <div class="statBox">
-        <div id="broken"></div>
-        --<a>Expand</a>--
+    <!-- Ajax to update session variable. Confirming on last page submits it all -->
+
+    <div class="report-date">
+        6/13/2017
+        <hr class="hr-higher">
+        --<a>New Report</a>--
+    </div>
+    <div class="report-date">
+        6/12/2017
+        <hr class="hr-higher">
+        --<a>New Report</a>--
     </div>
 </div>
 
@@ -135,6 +140,8 @@ $campusID = $_SERVER['umbccampusid'];
 
 
 <!-- Load scripts at the end -->
-<script src="js/dashboard.js"></script>
+<script src="js/reports.js"></script>
 </body>
+
+
 </html>
