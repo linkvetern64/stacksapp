@@ -46,6 +46,11 @@ function generateNewReport(){
  * @desc
  * Creates SQL Date style numbers.  An array is returned
  * of day, month and year.
+ * Months go from 01 - 12
+ * Days go from 01 - 31
+ * Years will be like 2XXX
+ * ---Unless this is still used 1,000 years in the future (most likely).  Then obviously
+ * the years will be like 3XXX and so on.----
  */
 function getDate(){
     var date = new Date();
@@ -128,9 +133,25 @@ function getArchives(){
  * to getArchives function
  */
 function archiveSuccess(ajax){
-    console.log(ajax.responseText);
+    var data = JSON.parse(ajax.responseText);
+    var container = document.getElementById("container-stack-reports");
+
+    for(var i = 0; i < data.length; i++){
+        console.log(data[i]);
+
+        var entry = document.createElement('div');
+        entry.className = 'report-date';
+
+        entry.innerHTML =
+            upDate(data[i]["date"]) + 
+            "<hr class='hr-higher'>" +
+            "-- <a>View Report</a> --" +
+            "</hr>";
+
+        container.appendChild(entry);
+    }
 }
 
 function archiveFailure(ajax){
-
+    console.log("Failure");
 }

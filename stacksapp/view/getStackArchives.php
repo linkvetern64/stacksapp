@@ -12,4 +12,9 @@ $db = new DB();
 $month = $_GET["month"];
 $year = $_GET["year"];
 
-echo $month . " / " . $year;
+$start = $year . "-" . $month . "-01";
+$end = $year . "-" . $month . "-31";
+
+$results = $db->getArchivesFrom($start, $end);
+$JSON = json_encode($results);
+echo $JSON;

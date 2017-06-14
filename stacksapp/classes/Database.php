@@ -41,7 +41,11 @@ class DB {
 		return null;
 	}
 
-
+    /**
+     * @return bool
+     * @desc
+     * Return a test to see if you're able to connect to the function above
+     */
     public function testConnection(){
         return !is_null($this->connect());
     }
@@ -141,6 +145,35 @@ class DB {
             $result = $stmt->fetchAll();
             $conn = null;
 
+            return $result;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @param $start
+     * @param $end
+     * @return array|bool|null
+     * @desc This function will return all the archives from a certain month
+     */
+    public function getArchivesFrom($start, $end){
+        $table = "LITS_Stack_Reports";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT * FROM $table WHERE date BETWEEN :start_date AND :end_date");
+
+            $stmt->bindParam(':start_date', $start);
+            $stmt->bindParam(':end_date', $end);
+
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
             return $result;
         }
         catch(PDOException $e){
