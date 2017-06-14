@@ -41,65 +41,18 @@ class DB {
 		return null;
 	}
 
-    /**
-     * @param $user
-     * @param $pass
-     * @return array|bool
-     */
-    public function authorize($ID, $pass){
-        $table = "user_accounts";
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("select password from $table WHERE email = '" . $ID . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            return $result[0]["password"];
-        }
-        catch(PDOException $e){
-            echo $e;
-            return false;
-        }
-    }
-
 
     public function testConnection(){
         return !is_null($this->connect());
     }
 
-    /*
-     * @param $ID
-     * @return array|bool|string
+    /**
+     * removeItem
+     * @param $id
+     * @return bool|null
+     * @desc
+     * Remove computer by tag from Stack_Computers
      */
-    public function getName($ID){
-        $table = "user_accounts";
-        $ID = strtoupper($ID);
-        try {
-            $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE email = '" . $ID . "'");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-
-            $conn = null;
-
-            foreach ($result as $k => $v) {
-                return $v["fName"] . " " . $v["lName"];
-            }
-
-            return $result;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return null;
-        }
-    }
-
-
     public function removeItem($id){
         //Remove image from images too.
         $table = "LITS_Stack_Computers";
@@ -120,6 +73,13 @@ class DB {
 
     }
 
+    /**
+     * getStacksByFloor()
+     * @param $floor - int that is used for getting the stacks by floor
+     * @return array|bool|null
+     * @desc
+     * Gets all stacks from table based by floor.
+     */
     public function getStacksByFloor($floor){
         $table = "LITS_Stack_Computers";
 
@@ -139,7 +99,37 @@ class DB {
         }
     }
 
+    /**
+     * @param $date
+     * @return array|bool|null
+     * @desc
+     * Should return bool if entry exists or not
+     */
+    public function reportExists($date){
+        $table = "LITS_Stack_Reports";
 
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT * FROM $table WHERE date = '" . $date . "'");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
+            return sizeof($result);
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+    }
+
+    /**
+     * getStacks()
+     * @return array|bool|null
+     * @desc
+     * Gets from the table LITS_Stack_Computers an entire list
+     * of computers currently used in the library.
+     */
     public function getStacks(){
         $table = "LITS_Stack_Computers";
 
@@ -159,42 +149,6 @@ class DB {
         }
     }
 
-    public function linkImage($data){
-        $table = "images";
-
-        try {
-            $conn = $this->connect();
-            //update otherwise insert
-            $stmt = $conn->prepare("INSERT INTO images (image, ref, `type`)
-                                VALUES (:image, :ref, :type)");
-
-            $stmt->bindParam(':ref', $unique);
-            $stmt->bindParam(':image', $img);
-            $stmt->bindParam(':type', $type);
-
-            if(!isset($data["email"])) {
-                $campusID = strtoupper($data["campusID"]);
-                $unique = $campusID . "_" . $data["nextIt"];
-            }
-            else{
-
-                $unique = $data["email"];
-                unset($data["email"]);
-            }
-            $img = $data["img"];
-            $type = $data["type"];
-
-            $stmt->execute();
-            $conn = null;
-            return true;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return false;
-        }
-    }
-
-
     public function addItem($data){
         $table = "LITS_Stack_Computers";
 
@@ -212,40 +166,6 @@ class DB {
             $stmt->execute();
 
             $conn = null;
-            return true;
-        }
-        catch(PDOException $e){
-            echo $e;
-            return false;
-        }
-
-    }
-
-    public function submit($data){
-        $table = "LIBRARY_Student_Apps";
-
-        try {
-            $conn = $this->connect();
-
-            $stmt = $conn->prepare("INSERT INTO user_accounts (lName, fName, email, campusID, password)
-                                VALUES (:lName, :fName, :email, :campusID, :password)");
-            $stmt->bindParam(':lName', $lastname);
-            $stmt->bindParam(':fName', $firstname);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':campusID', $campusID);
-            $stmt->bindParam(':password', $password);
-
-
-            $lastname = $data["lName"];
-            $firstname = $data["fName"];
-            $email = $data["email"];
-            $campusID = strtoupper($data["campusID"]);
-            $password = $data["password"];
-
-            $stmt->execute();
-           
-            $conn = null;
-
             return true;
         }
         catch(PDOException $e){

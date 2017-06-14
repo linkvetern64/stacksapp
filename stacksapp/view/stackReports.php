@@ -65,7 +65,8 @@ $campusID = $_SERVER['umbccampusid'];
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "load", function() {
-                getArchives(6, 2017);
+                generateNewReport();
+                getArchives();
             });
         });
     </script>
@@ -119,17 +120,6 @@ $campusID = $_SERVER['umbccampusid'];
 <div id="container-stack-reports" class="container">
     <!-- Content populates here... -->
     <!-- Ajax to update session variable. Confirming on last page submits it all -->
-
-    <div class="report-date">
-        6/13/2017
-        <hr class="hr-higher">
-        --<a>New Report</a>--
-    </div>
-    <div class="report-date">
-        6/12/2017
-        <hr class="hr-higher">
-        --<a>New Report</a>--
-    </div>
 </div>
 
 <!-- Footer Content -->

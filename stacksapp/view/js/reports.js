@@ -15,6 +15,85 @@ function upDate(date){
 }
 
 /**
+ * generateNewReport
+ * @param day - int
+ * @param month - int
+ * @param year - int
+ * @desc
+ * Check the database if the entry exists.  If it doesn't
+ * make a new entry at the top of stackReports.php
+ */
+function generateNewReport(){
+    var date = getDate();
+    var year = date["year"];
+    var month = date["month"];
+    var day = date["day"];
+
+    date = year + "-" + month + "-" + day;
+    new Ajax.Request( "checkDayReportExists.php",
+        {
+            method: "get",
+            parameters: {date : date},
+            onSuccess: reportSuccess,
+            onFailure: reportFailure
+        }
+    );
+}
+
+/**
+ * getDate
+ * @returns {Date} - associate array with day, month, year indexs
+ * @desc
+ * Creates SQL Date style numbers.  An array is returned
+ * of day, month and year.
+ */
+function getDate(){
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    (month < 10 && month > 0) ? (month = "0" + month) : month;
+    (day < 10 && day > 0) ? (day = "0" + day) : day;
+
+    date["day"] = day;
+    date["month"] = month;
+    date["year"] = year;
+
+    return date;
+}
+
+/**
+ * reportSuccess
+ * @param ajax - response text that should be either "0" or "1"
+ */
+function reportSuccess(ajax){
+    var date = getDate();
+    date = upDate(date["year"] + "-" + date["month"] + "-" + date["day"]);
+    if(ajax.responseText === "0"){
+        var container = document.getElementById("container-stack-reports");
+
+        var entry = document.createElement('div');
+        entry.className = 'report-date';
+
+        entry.innerHTML =
+            date +
+            "<hr class='hr-higher'>" +
+            "-- <a>New Report</a> --" +
+            "</hr>";
+
+        container.insertBefore(entry, container.firstChild);
+    }
+}
+
+function reportFailure(ajax){
+    console.log("ERROR");
+    console.log(ajax.responseText);
+}
+
+
+/**
  * @name getArchives
  * @param month - current month as int
  * @param year - current year as int
@@ -24,7 +103,12 @@ function upDate(date){
  * On success: archiveSuccess is called
  * On failure: archiveFailure is called, prints to console the error
  */
-function getArchives(month, year){
+function getArchives(){
+    var date = getDate();
+
+    var month = date["month"];
+    var year = date["year"];
+
     new Ajax.Request( "getStackArchives.php",
         {
             method: "get",
