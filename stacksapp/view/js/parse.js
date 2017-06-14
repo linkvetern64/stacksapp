@@ -82,6 +82,9 @@ function stackFailure(ajax){
     console.log(ajax.responseText);
 }
 
+/**
+ * Changes the title of the page for stacksCheck.php
+ */
 function changePageTitle(){
     /*Change the page title*/
     var title = document.getElementById("floorTitle");

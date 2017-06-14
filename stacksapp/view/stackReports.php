@@ -65,8 +65,7 @@ $campusID = $_SERVER['umbccampusid'];
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "load", function() {
-                generateNewReport();
-                getArchives();
+
             });
         });
     </script>
@@ -87,8 +86,7 @@ $campusID = $_SERVER['umbccampusid'];
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#about">Check Reports</a></li>
-                <li><a href="inv-manager.php">Update Roster</a></li>
+                <li><a href="inv-manager.php">Update Inventory</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
                 <li><a href="stackReports.php">New Report</a></li>
                 <li><a href="issueArchive.php">Archive</a></li>
@@ -112,12 +110,12 @@ $campusID = $_SERVER['umbccampusid'];
 
 <!-- Title of page -->
 <div id="floorTitle">
-    Stack Reports
+    New Report
 </div>
 <br />
 
 <!-- Display Content -->
-<div id="container-stack-reports" class="container">
+<div id="container" class="container">
     <!-- Content populates here... -->
     <!-- Ajax to update session variable. Confirming on last page submits it all -->
 </div>
@@ -130,7 +128,7 @@ $campusID = $_SERVER['umbccampusid'];
 
 
 <!-- Load scripts at the end -->
-<script src="js/reports.js"></script>
+<script src=""></script>
 </body>
 
 

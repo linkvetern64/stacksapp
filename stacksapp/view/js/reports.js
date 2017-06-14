@@ -85,7 +85,7 @@ function reportSuccess(ajax){
         entry.innerHTML =
             date +
             "<hr class='hr-higher'>" +
-            "-- <a>New Report</a> --" +
+            "-- <a href='stacksCheck.php'>New Report</a> --" +
             "</hr>";
 
         container.insertBefore(entry, container.firstChild);
@@ -143,7 +143,7 @@ function archiveSuccess(ajax){
         entry.className = 'report-date';
 
         entry.innerHTML =
-            upDate(data[i]["date"]) + 
+            upDate(data[i]["date"]) +
             "<hr class='hr-higher'>" +
             "-- <a>View Report</a> --" +
             "</hr>";
