@@ -124,6 +124,8 @@ $campusID = $_SERVER['umbccampusid'];
 <div id="container" class="container">
     <!-- Content populates here... -->
     <!-- Ajax to update session variable. Confirming on last page submits it all -->
+
+    
 </div>
 
 <!-- Modal -->
@@ -136,7 +138,7 @@ $campusID = $_SERVER['umbccampusid'];
                 <h4 class="modal-title">Describe the issue:</h4>
             </div>
             <div class="modal-body">
-                <textarea id="comment" style="min-width:100%;" placeholder="Enter text here..."></textarea>
+                <textarea id="comment" style="min-width:100%;height:150px;" placeholder="Enter text here..."></textarea>
             </div>
             <div class="modal-footer" style="text-align:center;">
                 <button type="button" onclick="submit();" class="btn btn-info" data-dismiss="modal">Confirm</button>

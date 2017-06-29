@@ -89,7 +89,6 @@ $campusID = $_SERVER['umbccampusid'];
                 <li><a href="index.php">Home</a></li>
                 <li><a href="inv-manager.php">Update Inventory</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
-                <li><a href="stacksCheck.php">New Report</a></li>
                 <li><a href="issueArchive.php">Archive</a></li>
                 <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
             </ul>

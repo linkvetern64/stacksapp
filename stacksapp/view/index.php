@@ -92,7 +92,6 @@ $campusID = $_SERVER['umbccampusid'];
                 <li><a href="index.php">Home</a></li>
                 <li><a href="inv-manager.php">Update Inventory</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
-                <li><a href="stacksCheck.php">New Report</a></li>
                 <li><a href="issueArchive.php">Archive</a></li>
                 <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
             </ul>
@@ -122,7 +121,7 @@ $campusID = $_SERVER['umbccampusid'];
     <!-- Content populates here... -->
     <div class="statBox">
         <div id="broken"></div>
-        --<a>Expand</a>--
+        --<a style="cursor:pointer;">Expand</a>--
     </div>
 </div>
 
