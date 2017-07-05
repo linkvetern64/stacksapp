@@ -65,7 +65,7 @@ $campusID = $_SERVER['umbccampusid'];
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "load", function() {
-                getStacksByFloor(1);
+               getStacksByFloor(1);
             });
 
             $(document).ready(function () {
@@ -101,13 +101,13 @@ $campusID = $_SERVER['umbccampusid'];
         </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
-                <li class="center"><a href="#1st">1st Floor</a></li>
-                <li class="center"><a href="#2nd">2nd Floor</a></li>
-                <li class="center"><a href="#3rd">3rd Floor</a></li>
-                <li class="center"><a href="#4th">4th Floor</a></li>
-                <li class="center"><a href="#5th">5th Floor</a></li>
-                <li class="center"><a href="#6th">6th Floor</a></li>
-                <li class="center"><a href="#7th">7th Floor</a></li>
+                <li class="center" onclick="getStacksByFloor(1);"><a href="#1st">1st Floor</a></li>
+                <li class="center" onclick="getStacksByFloor(2);"><a href="#2nd">2nd Floor</a></li>
+                <li class="center" onclick="getStacksByFloor(3);"><a href="#3rd">3rd Floor</a></li>
+                <li class="center" onclick="getStacksByFloor(4);"><a href="#4th">4th Floor</a></li>
+                <li class="center" onclick="getStacksByFloor(5);"><a href="#5th">5th Floor</a></li>
+                <li class="center" onclick="getStacksByFloor(6);"><a href="#6th">6th Floor</a></li>
+                <li class="center" onclick="getStacksByFloor(7);"><a href="#7th">7th Floor</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
@@ -124,7 +124,6 @@ $campusID = $_SERVER['umbccampusid'];
 <div id="container" class="container">
     <!-- Content populates here... -->
     <!-- Ajax to update session variable. Confirming on last page submits it all -->
-
     
 </div>
 
@@ -141,7 +140,8 @@ $campusID = $_SERVER['umbccampusid'];
                 <textarea id="comment" style="min-width:100%;height:150px;" placeholder="Enter text here..."></textarea>
             </div>
             <div class="modal-footer" style="text-align:center;">
-                <button type="button" onclick="submit();" class="btn btn-info" data-dismiss="modal">Confirm</button>
+                <button type="button" onclick="submit('resolved');" class="btn btn-success" data-dismiss="modal">Resolved</button>
+                <button type="button" onclick="submit('reported');" class="btn btn-info" data-dismiss="modal">Report</button>
             </div>
         </div>
     </div>

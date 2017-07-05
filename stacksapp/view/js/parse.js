@@ -41,8 +41,8 @@ function stackSuccess(ajax){
         entry.className = 'entry';
         entry.innerHTML = "<div class='pc-id'>" + tag + "</div>" +
             "<div id='right'>" +
-            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"bad\");' class='btn btn-danger btn-sm inline-btn btn-align-right' data-toggle='modal' data-target='#myModal'>Bad</button>" +
-            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-success btn-sm inline-btn  rej btn-align-right'>Good</button>" +
+            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\");' class='btn btn-danger btn-sm inline-btn btn-align-right' data-toggle='modal' data-target='#myModal'>Report</button>" +
+            //"<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-success btn-sm inline-btn  rej btn-align-right'>Resolve</button>" +
             "</div>";
 
         container.appendChild(entry);
@@ -102,21 +102,15 @@ function changePageTitle(){
     title.innerHTML = name;
 }
 
-function setData(tag, floor, type){
+function setData(tag, floor){
     data = [];
     data["tag"] = tag;
     data["floor"] = floor;
-    data["type"] = type;
-
-    if(type === "good"){
-        submit()
-    }
 }
 
-function submit(){
+function submit(type){
     var tag = data["tag"];
     var floor = data["floor"];
-    var type = data["type"];
 
     data = [];
     var comment = document.getElementById("comment").value;
@@ -135,7 +129,6 @@ function submit(){
 }
 
 function submitSuccess(ajax){
-    console.log("Success")
     console.log(ajax.responseText)
 }
 

@@ -9,20 +9,31 @@ session_start();
 require_once(dirname(__FILE__) . '/../load.php');
 $db = new DB();
 
+/* Data sent from AJAX */
 $tag = $_GET["tag"];
 $type = $_GET["type"];
 $floor = $_GET["floor"];
 $comment = $_GET["comment"];
 
-if(!isset($_SESSION[$floor])){
-    $_SESSION[$floor] = [];
-}
+/* Populated from Shibboleth */
+$firstName = $_SERVER['givenName'];
+$lastName = $_SERVER['sn'];
+$fullName = $_SERVER['displayName'];
+$mail = $_SERVER['mail'];
+$campusID = $_SERVER['umbccampusid'];
 
-array_push($_SESSION[$floor], [$tag, $type, $comment]);
 
-foreach($_SESSION[$floor] as $k=>$v) {
-    print_r($v);
-    foreach($v as $l){
-        echo $l;
-    }
-}
+/* Data to send to Database */
+$data["user"] = $campusID = "beta_user";
+$data["date"] = date("Y-m-d");
+$data["report"] = $comment;
+$data["tag"] = $tag;
+$data["floor"] = $floor;
+$data["resolved"] = ($type === "resolved");
+
+/* Debug Output */
+//echo $date;
+
+/* Submission to database */
+$db->createReport($data);
+

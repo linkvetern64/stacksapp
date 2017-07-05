@@ -182,6 +182,54 @@ class DB {
         }
     }
 
+
+    /**
+     * @name createReport
+     * @param $data - Array of data sent over from storeSessionData.php
+     * @return bool -  True if SQL succeeded, False if it failed
+     * @desc:
+     * This function creates a report to be viewed by the dashboard for a
+     * stack report.
+     */
+    public function createReport($data){
+        $table = "LITS_Stack_Reports";
+
+        try {
+            $conn = $this->connect();
+
+            $stmt = $conn->prepare("INSERT INTO $table (date, report, user, tag, floor, resolved)
+                                VALUES (:date, :report, :user, :tag, :floor, :resolved)");
+            $stmt->bindParam(':date', $date);
+            $stmt->bindParam(':report', $report);
+            $stmt->bindParam(':user', $user);
+            $stmt->bindParam(':tag', $tag);
+            $stmt->bindParam(':floor', $floor);
+            $stmt->bindParam(':resolved', $resolved);
+
+
+
+            $date = $data["date"];
+            $report = $data["report"];
+            $user = $data["user"];
+            $tag = $data["tag"];
+            $floor = $data["floor"];
+            $resolved = $data["resolved"];
+
+            $stmt->execute();
+
+            $conn = null;
+            return true;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return false;
+        }
+
+    }
+
+
+
+
     public function addItem($data){
         $table = "LITS_Stack_Computers";
 
