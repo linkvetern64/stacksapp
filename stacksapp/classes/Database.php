@@ -165,7 +165,7 @@ class DB {
 
         try {
             $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE date BETWEEN :start_date AND :end_date");
+            $stmt = $conn->prepare("SELECT DISTINCT date FROM $table WHERE date BETWEEN :start_date AND :end_date");
 
             $stmt->bindParam(':start_date', $start);
             $stmt->bindParam(':end_date', $end);

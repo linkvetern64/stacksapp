@@ -117,7 +117,6 @@ $campusID = $_SERVER['umbccampusid'];
 <!-- Display Content -->
 <div id="container-stack-reports" class="container">
     <!-- Content populates here... -->
-    <!-- Ajax to update session variable. Confirming on last page submits it all -->
 </div>
 
 <!-- Footer Content -->

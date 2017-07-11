@@ -137,7 +137,7 @@ function archiveSuccess(ajax){
     var container = document.getElementById("container-stack-reports");
 
     for(var i = 0; i < data.length; i++){
-        console.log(data[i]);
+        console.log(data[i]["date"]);
 
         var entry = document.createElement('div');
         entry.className = 'report-date';
@@ -145,7 +145,7 @@ function archiveSuccess(ajax){
         entry.innerHTML =
             upDate(data[i]["date"]) +
             "<hr class='hr-higher'>" +
-            "-- <a>View Report</a> --" +
+            "-- <a onclick='loadReport(\"" + data[i]["date"] + "\")'>View Report</a> --" +
             "</hr>";
 
         container.appendChild(entry);
@@ -154,4 +154,12 @@ function archiveSuccess(ajax){
 
 function archiveFailure(ajax){
     console.log("Failure");
+}
+
+/**
+ * loadReport
+ * @param date - String of the date to load report of.
+ */
+function loadReport(date){
+    console.log("Generating modal for " + date + " ...");
 }
