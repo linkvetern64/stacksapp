@@ -101,13 +101,13 @@ $campusID = $_SERVER['umbccampusid'];
         </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
-                <li class="center" onclick="getStacksByFloor(1);"><a href="#1st">1st Floor</a></li>
-                <li class="center" onclick="getStacksByFloor(2);"><a href="#2nd">2nd Floor</a></li>
-                <li class="center" onclick="getStacksByFloor(3);"><a href="#3rd">3rd Floor</a></li>
-                <li class="center" onclick="getStacksByFloor(4);"><a href="#4th">4th Floor</a></li>
-                <li class="center" onclick="getStacksByFloor(5);"><a href="#5th">5th Floor</a></li>
-                <li class="center" onclick="getStacksByFloor(6);"><a href="#6th">6th Floor</a></li>
-                <li class="center" onclick="getStacksByFloor(7);"><a href="#7th">7th Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(1);"><a >1st Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(2);"><a >2nd Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(3);"><a >3rd Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(4);"><a >4th Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(5);"><a >5th Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(6);"><a >6th Floor</a></li>
+                <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(7);"><a >7th Floor</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
@@ -126,7 +126,7 @@ $campusID = $_SERVER['umbccampusid'];
     <!-- Ajax to update session variable. Confirming on last page submits it all -->
     
 </div>
-
+<button class="btn-center-long btn btn-success" onclick="submitReport()">Submit Report</button>
 <!-- Modal -->
 <div class="modal fade fix-center" id="myModal" role="dialog">
     <div class="modal-dialog">

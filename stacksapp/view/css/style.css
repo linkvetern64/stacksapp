@@ -47,7 +47,7 @@ body{
 }
 
 .statBox{
-    display:inline-block;
+    display:block;
     position:relative;
     height:auto;
     width:20%;
@@ -57,6 +57,24 @@ body{
 
     /*Adds a box-shadow to the entry div*/
     box-shadow: 5px 5px 1px #CCC;
+    clear:both;
+}
+
+#inactive-feed{
+    font-family: Terminal Dosis, sans-serif;
+    display:block;
+    position:relative;
+    height:50px;
+    width:20%;
+    border:1px solid green;
+    padding:12px;
+    float:right;
+    box-shadow: 5px 5px 1px #CCC;
+    background-color:black;
+    color:#7FFF00;
+    clear:both;
+    text-align:center;
+    margin-top:5px;
 }
 
 /* -------------------------- End index.php -------------------------- */
@@ -118,7 +136,7 @@ body{
     position: relative;
     width: 50%;
     height: auto;
-    margin: 0 auto;
+    margin: 0px auto;
     padding: 12px;
     border:1px solid black;
 }
@@ -134,6 +152,15 @@ body{
     height:50px;
     text-align:center;
     padding:12px;
+}
+
+.btn-center-long{
+    width:50%;
+    display:block;
+    position:relative;
+    margin:5px auto;
+    padding: 6px;
+
 }
 
 .entry{
@@ -531,6 +558,15 @@ li.center{
         font-size:.8em;
     }
 
+    .btn-center-long{
+        width:90%;
+        display:block;
+        position:relative;
+        margin:5px auto;
+        padding: 6px;
+
+    }
+
 }
 
 html,
@@ -587,6 +623,8 @@ footer {
         top: 0;
         width: 60%; /* 6 columns */
     }
+
+
 }
 
 /* -------------------------- End mobile designs -------------------------- */

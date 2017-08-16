@@ -4,6 +4,15 @@
 var FLOOR;
 var data = [];
 
+function submitReport(){
+    if(confirm("Are you sure?")){
+        console.log("Submitting report...")
+    }
+    else {
+        console.log("Failure to Submit");
+    }
+}
+
 function getStacksByFloor(floor){
     FLOOR = floor
     new Ajax.Request( "getStacks.php",

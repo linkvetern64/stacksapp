@@ -69,6 +69,7 @@ $campusID = $_SERVER['umbccampusid'];
             //Loads JSON data on browser load
             $(window).on("load", function () {
                 loadData();
+
             });
 
         });
@@ -119,9 +120,16 @@ $campusID = $_SERVER['umbccampusid'];
 <!-- Display Content -->
 <div id="container-dash" class="container">
     <!-- Content populates here... -->
+
+    <!-- Stat box to list broken computers -->
     <div class="statBox">
         <div id="broken"></div>
         --<a style="cursor:pointer;">Expand</a>--
+    </div>
+
+    <!-- Feed for broken computers -->
+    <div id="inactive-feed">
+        <!-- Computer Feed -->
     </div>
 </div>
 
