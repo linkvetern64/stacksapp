@@ -124,6 +124,24 @@ function getArchives(){
     );
 }
 
+function getAllArchives(){
+    var date = getDate();
+
+    var month = date["month"];
+    var year = date["year"];
+
+    new Ajax.Request( "getAllArchives.php",
+        {
+            method: "get",
+            parameters: {month : month,
+                year : year},
+            onSuccess: archiveSuccess,
+            onFailure: archiveFailure
+        }
+    );
+}
+
+
 /**
  * @name archiveSuccess
  * @param ajax - response text from getStackArchives.php
@@ -135,7 +153,11 @@ function archiveSuccess(ajax){
     var data = JSON.parse(ajax.responseText);
     var container = document.getElementById("container-stack-reports");
 
-    for(var i = 0; i < data.length; i++){
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
+
+    for(var i = data.length - 1; data.length >= 0; i--){
 
         var entry = document.createElement('div');
         entry.className = 'report-date';

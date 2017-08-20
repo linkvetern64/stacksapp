@@ -267,8 +267,7 @@ body{
 
 /* Fixes the modal to the center of the screen, horizontally aligned in the center */
 .fix-center{
-   position:fixed;
-   margin-top:30%;
+
 }
 
 .inline-btn{
@@ -673,6 +672,12 @@ footer {
         -webkit-transition: all .25s ease-out;
         -o-transition: all .25s ease-out;
         transition: all .25s ease-out;
+    }
+
+
+    .fix-center{
+        position:fixed;
+        margin-top:30%;
     }
 
     .row-offcanvas-right {

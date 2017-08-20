@@ -7,6 +7,7 @@ var data = [];
 function submitReport(){
     if(confirm("Are you sure?")){
         console.log("Submitting report...")
+        window.location.href = "issueArchive.php";
     }
     else {
         console.log("Failure to Submit");
@@ -138,10 +139,10 @@ function submit(type){
 }
 
 function submitSuccess(ajax){
-    console.log(ajax.responseText)
+    console.log("Submitted successfully");
 }
 
 function submitFailure(ajax){
-    console.log("Error")
-    console.log(ajax.responseText)
+    console.log("Error");
+    console.log(ajax.responseText);
 }

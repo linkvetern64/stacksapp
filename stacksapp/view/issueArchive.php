@@ -118,7 +118,9 @@ $campusID = $_SERVER['umbccampusid'];
 <div id="container-stack-reports" class="container">
     <!-- Content populates here... -->
 </div>
-
+<button class="btn btn-success btn-center-long" onclick="getAllArchives()">
+Load Old Reports
+</button>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
@@ -129,20 +131,10 @@ $campusID = $_SERVER['umbccampusid'];
             </div>
             <!-- Add Scroll Style -->
             <div id="report-body" class="modal-body scroll-style scrollbar">
-                <div class="report-listing">
-                    <div class="report-title">LIB1PC02</div>
-                    <div class="report-desc">Broken Mouse and the computer is realy slow.
-                    it makes me want to harm myself physically.  Life is pain.
-                    All I know is sadness.  Also Ethernet is down</div>
-                    <div class="report-status">
-
-                    </div>
-                </div>
-
+                <!-- Reports populate from reports.js -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
