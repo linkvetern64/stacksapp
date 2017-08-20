@@ -93,7 +93,6 @@ function reportSuccess(ajax){
 }
 
 function reportFailure(ajax){
-    console.log("ERROR");
     console.log(ajax.responseText);
 }
 
@@ -137,7 +136,6 @@ function archiveSuccess(ajax){
     var container = document.getElementById("container-stack-reports");
 
     for(var i = 0; i < data.length; i++){
-        console.log(data[i]["date"]);
 
         var entry = document.createElement('div');
         entry.className = 'report-date';
@@ -145,7 +143,7 @@ function archiveSuccess(ajax){
         entry.innerHTML =
             upDate(data[i]["date"]) +
             "<hr class='hr-higher'>" +
-            "-- <a onclick='loadReport(\"" + data[i]["date"] + "\")'>View Report</a> --" +
+            "-- <a data-toggle=\"modal\" data-target=\"#myModal\" onclick='loadReport(\"" + data[i]["date"] + "\")'>View Report</a> --" +
             "</hr>";
 
         container.appendChild(entry);
@@ -161,5 +159,47 @@ function archiveFailure(ajax){
  * @param date - String of the date to load report of.
  */
 function loadReport(date){
-    console.log("Generating modal for " + date + " ...");
+    new Ajax.Request( "loadReport.php",
+        {
+            method: "get",
+            parameters: {date : date},
+            onSuccess: loadSuccess
+        }
+    );
+}
+
+/**
+ * @name loadSuccess
+ * @param ajax response text from loadReport.php
+ * @desc
+ * Populates modal on reports page with listings
+ */
+function loadSuccess(ajax){
+    var reports = JSON.parse(ajax.responseText);
+
+    var container = document.getElementById("report-body");
+    var title = document.getElementById("modalLabel");
+
+    //Removes the children from the container
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
+
+    title.innerHTML = "Report: " + upDate(reports[0]["date"]);
+
+    /* Creates listings for modal */
+    for(var i = 0; i < reports.length; i++){
+        var entry = document.createElement('div');
+        var tag = reports[i]["tag"];
+        var report = reports[i]["report"];
+        var status = "Resolved";
+
+        entry.className = 'report-listing';
+        entry.innerHTML =
+            "<div class=\"report-title\">"+ tag +"</div>" +
+            "<div class=\"report-desc\">"+ report +"</div>" +
+            //"<div class=\"report-status\">Report Status: "+ status +"</div>" +
+            "</div>";
+        container.appendChild(entry);
+    }
 }

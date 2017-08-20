@@ -119,22 +119,26 @@ $campusID = $_SERVER['umbccampusid'];
     <!-- Content populates here... -->
 </div>
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Report Modal Demo
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><!-- Report Title Date --></h4>
+                <h4 class="modal-title" id="modalLabel"><!-- Report Title Date --></h4>
             </div>
-            <div class="modal-body">
-                ...
+            <!-- Add Scroll Style -->
+            <div id="report-body" class="modal-body scroll-style scrollbar">
+                <div class="report-listing">
+                    <div class="report-title">LIB1PC02</div>
+                    <div class="report-desc">Broken Mouse and the computer is realy slow.
+                    it makes me want to harm myself physically.  Life is pain.
+                    All I know is sadness.  Also Ethernet is down</div>
+                    <div class="report-status">
+
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

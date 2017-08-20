@@ -131,6 +131,8 @@ $campusID = $_SERVER['umbccampusid'];
     <div id="inactive-feed">
         <!-- Computer Feed -->
     </div>
+
+    <!-- ADD Inactive Computer chart timeline-->
 </div>
 
 <!-- Footer Content -->

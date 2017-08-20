@@ -28,7 +28,94 @@ body{
 
 
 
+/* -------------------------- For issueArchive.php -------------------- */
 
+.report-listing{
+    border:1px solid black;
+    width:90%;
+    height:auto;
+    padding:12px;
+    display:block;
+    position:relative;
+    margin:10px auto;
+    box-shadow: 5px 5px 1px #CCC;
+    overflow:auto;
+
+}
+
+.report-title{
+    border-bottom:1px solid #444;
+    border-left:1px solid #444;
+    display:block;
+    float:left;
+    clear:both;
+    position:relative;
+    width:100%;
+    padding:4px;
+    height:25px;
+    font-size:1.2em;
+    font-style:italic;
+
+    /*Gradient for title*/
+    background: rgba(20,20,250,.2);
+    background: -moz-linear-gradient(left, rgba(20,20,250,.2) 0%, rgba(255,255,255,0.58) 87%, rgba(255,255,255,0.49) 57%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(20,20,250,.2) 0%, rgba(255,255,255,0.58) 87%, rgba(255,255,255,0.49) 57%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(20,20,250,.2) 0%, rgba(255,255,255,0.58) 87%, rgba(255,255,255,0.49) 57%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(left, rgba(20,20,250,.2)) 0%, rgba(255,255,255,0.58) 87%, rgba(255,255,255,0.49) 57%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to right, rgba(20,20,250,.2)) 0%, rgba(255,255,255,0.58) 87%, rgba(255,255,255,0.49) 57%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8282fc', endColorstr='#ffffff', GradientType=1 );
+}
+
+.report-status{
+    display:block;
+    float:right;
+    clear:both;
+    position:relative;
+    width:100%;
+    padding:12px;
+    height:auto;
+    text-align:center;
+    font-size:1.2em;
+    font-style:italic;
+}
+
+.report-desc{
+    display:block;
+    float:right;
+    clear:both;
+    position:relative;
+    width:100%;
+    padding:12px;
+    height:auto;
+}
+
+.scrollbar
+{
+    overflow-y: scroll;
+}
+
+
+.scrollbar::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #D62929;
+}
+
+/* -------------------------- end issueArchive.php -------------------- */
 
 
 
@@ -78,10 +165,6 @@ body{
 }
 
 /* -------------------------- End index.php -------------------------- */
-
-
-
-
 
 
 

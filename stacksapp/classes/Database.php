@@ -84,6 +84,32 @@ class DB {
      * @desc
      * Gets all stacks from table based by floor.
      */
+    public function getReport($date){
+        $table = "LITS_Stack_Reports";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT * FROM $table WHERE date = '" . $date . "'");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
+
+            return $result;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+    }
+
+    /**
+     * getStacksByFloor()
+     * @param $floor - int that is used for getting the stacks by floor
+     * @return array|bool|null
+     * @desc
+     * Gets all stacks from table based by floor.
+     */
     public function getStacksByFloor($floor){
         $table = "LITS_Stack_Computers";
 
