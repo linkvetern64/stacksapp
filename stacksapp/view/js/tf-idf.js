@@ -1,7 +1,8 @@
 /**
  * @author Joshua Standiford
  * @desc
- * This file is used to calculate the TF-IDF of a computer issue
+ * This file is used to calculate the TF-IDF of a computer issue.
+ * Involved is the TF-IDF A.I. algorithm
  */
 
 
@@ -21,6 +22,8 @@ function TF(occur, total){
  * @return {number}
  */
 function IDF(occurFiles, totalFiles){
+    console.log(occurFiles + "/" + totalFiles);
+
     return Math.log(totalFiles / occurFiles);
 }
 
@@ -41,7 +44,7 @@ function TF_IDF(){
     var files = ["apple.txt", "facebook.txt", "google.txt", "microsoft.txt", "tesla.txt"];
     var size = files.length;
 
-    files = files[Symbol.iterator]();
+    var eFiles = files[Symbol.iterator]();
 
     var index = 0;
     var count = [];
@@ -53,14 +56,12 @@ function TF_IDF(){
         count[k] = [];
     }
 
-
-    for(let file of files){
+    for(let file of eFiles){
         allWords[file] = [];
         words = a[file].split(" ");
-
-        words = words[Symbol.iterator]();
         wordTotal.push(words.length);
 
+        words = words[Symbol.iterator]();
         for(let word of words){
             if(word in count[index]){
                 count[index][word] = count[index][word] + 1;
@@ -70,56 +71,32 @@ function TF_IDF(){
                 count[index][word] = 1;
             }
         }
-        console.log(file);
         index += 1;
     }
 
-    console.log(count);
+    var i = 0;
+    var occur = 0;
 
-
-
-
-    //Iterates through each report
-    /*
-
-
-    //Initialize count with dictionaries of size
-
-
-    for(var i = 0; i < a.length; i++){
-        var words = a[i].split(" ");
-        wordTotal[wordTotal.length] = words.length;
-        console.log(wordTotal[i]);
-
-        for(var j = 0; j < wordTotal[i]; j++){
-            if(words[j] in Object.keys(count[index])){
-                count[index][words[j]] = count[index][words[j]] + 1
-            }
-            else{
-                allWords[files[i]].push(words[j]);
-                count[index][words[j]] = 1;
-            }
-        }
-
-        index += 1;
-    }
-
-    for(i = 0; i < files.length; i++){
-        console.log("For file " + files[i]);
+    for(var g = 0; g < count.length; g++){
+        //count[g]  -- Returns the array of dictionaries of the words from the reports
         var values = [];
+        var keys = Object.keys(count[g]);
+        for(k = 0; k < keys.length; k++){
+            occur = 0;
+            console.log(keys[k] + " " + count[g][keys[k]]);
 
-        for(j = 0; j < Object.keys(count[i]).length; j++){
-            var occur = 0;
+            //This counts the number of times a word appears in a report
+            for(var v = 0; v < count.length; v++){
+                if(keys[k] in count[v]){
 
-            for(k = 0; k < count.length; k++){
-                if(Object.keys(count[i])[j] in Object.keys(count[k])){
                     occur += 1;
                 }
             }
-            var value = TF(Object.keys(count[i])[j], wordTotal[i]) * IDF(occur, files.length);
-            values.push(Object.keys(count[i])[j], value);
+            console.log(wordTotal[i]);
+            var value = TF(count[g][keys[k]], wordTotal[i]) * IDF(occur, size);
+            console.log(keys[k] + " - " + value);
         }
+        i++;
     }
-    console.log(values);
-    */
+
 }
