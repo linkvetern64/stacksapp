@@ -50,6 +50,26 @@ class DB {
         return !is_null($this->connect());
     }
 
+    public function getAllReports(){
+        //Remove image from images too.
+        $table = "LITS_Stack_Reports";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT report, tag FROM $table");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
+
+            return $result;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+    }
+
     /**
      * removeItem
      * @param $id
