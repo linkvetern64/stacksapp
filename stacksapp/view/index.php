@@ -68,8 +68,8 @@ $campusID = $_SERVER['umbccampusid'];
 
             //Loads JSON data on browser load
             $(window).on("load", function () {
-                loadData();
-
+                //loadData();
+                TF_IDF();
             });
 
         });
@@ -144,5 +144,6 @@ $campusID = $_SERVER['umbccampusid'];
 
 <!-- Load scripts at the end -->
 <script src="js/dashboard.js"></script>
+<script src="js/tf-idf.js"></script>
 </body>
 </html>
