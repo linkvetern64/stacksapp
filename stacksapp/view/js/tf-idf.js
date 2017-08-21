@@ -22,13 +22,11 @@ function TF(occur, total){
  * @return {number}
  */
 function IDF(occurFiles, totalFiles){
-    console.log(occurFiles + "/" + totalFiles);
-
     return Math.log(totalFiles / occurFiles);
 }
 
 /**
- *
+ * @TODO Move the files off site, and just call TF_IDF on a whole set of data.
  * @constructor
  */
 function TF_IDF(){
@@ -78,25 +76,46 @@ function TF_IDF(){
     var occur = 0;
 
     for(var g = 0; g < count.length; g++){
-        //count[g]  -- Returns the array of dictionaries of the words from the reports
         var values = [];
         var keys = Object.keys(count[g]);
         for(k = 0; k < keys.length; k++){
             occur = 0;
-            console.log(keys[k] + " " + count[g][keys[k]]);
 
             //This counts the number of times a word appears in a report
             for(var v = 0; v < count.length; v++){
                 if(keys[k] in count[v]){
-
                     occur += 1;
                 }
             }
-            console.log(wordTotal[i]);
             var value = TF(count[g][keys[k]], wordTotal[i]) * IDF(occur, size);
-            console.log(keys[k] + " - " + value);
+            values.push([keys[k], Number((value).toFixed(5))]);
         }
+        values.sort(sortSecondColumn);
+
+        console.log("For file " + files[i]);
+        for(var t = 0; t < 5; t++){
+            console.log(values[t]);
+        }
+
+
         i++;
     }
 
+}
+
+/**
+ * @name sortSecondColumn
+ * @param a
+ * @param b
+ * @returns {number}
+ * @desc
+ * Sorts a 2d array by the second column.
+ */
+function sortSecondColumn(a,b){
+    if (a[1] === b[1]) {
+        return 0;
+    }
+    else {
+        return (a[1] > b[1]) ? -1 : 1;
+    }
 }

@@ -68,7 +68,7 @@ $campusID = $_SERVER['umbccampusid'];
 
             //Loads JSON data on browser load
             $(window).on("load", function () {
-                //loadData();
+                loadData();
                 TF_IDF();
             });
 
