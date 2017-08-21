@@ -44,6 +44,8 @@ function reportFailure(ajax){
     console.log(ajax.responseText);
 }
 
+
+
 /**
  * @TODO Move the files off site, and just call TF_IDF on a whole set of data.
  * @constructor

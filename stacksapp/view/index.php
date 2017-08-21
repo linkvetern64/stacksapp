@@ -128,7 +128,7 @@ $campusID = $_SERVER['umbccampusid'];
     </div>
 
     <!-- Feed for broken computers -->
-    <div id="inactive-feed">
+    <div id="inactive-feed" >
         <!-- Computer Feed -->
     </div>
 
