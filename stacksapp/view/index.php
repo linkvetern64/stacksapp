@@ -70,7 +70,6 @@ $campusID = $_SERVER['umbccampusid'];
             $(window).on("load", function () {
                 loadData();
                 TF_IDF();
-                getStacks();
             });
 
         });

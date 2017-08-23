@@ -65,8 +65,8 @@ $campusID = $_SERVER['umbccampusid'];
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "load", function() {
-                generateNewReport();
                 getArchives();
+                generateNewReport();
             });
         });
     </script>
