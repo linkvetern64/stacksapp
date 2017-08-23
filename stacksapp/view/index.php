@@ -70,6 +70,7 @@ $campusID = $_SERVER['umbccampusid'];
             $(window).on("load", function () {
                 loadData();
                 TF_IDF();
+                getStacks();
             });
 
         });
@@ -131,6 +132,8 @@ $campusID = $_SERVER['umbccampusid'];
     <div id="inactive-feed" >
         <!-- Computer Feed -->
     </div>
+
+    <div class="tag">LIB1PC06</div>
 
     <!-- ADD Inactive Computer chart timeline-->
 </div>

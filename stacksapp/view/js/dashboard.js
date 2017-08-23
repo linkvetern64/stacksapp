@@ -3,6 +3,7 @@
  */
 
 var STREAMS = [];
+var REPORT = "";
 
 function loadData(){
     new Ajax.Request( "openStreams.php",
@@ -71,3 +72,50 @@ function driveFeed(){
     }, 1000);
 }
 
+/**
+ * populateInventory
+ * @desc
+ * On call this function will return the inventory of computers listed in the database
+ * as AJAX responseText
+ */
+function getStacks(){
+    new Ajax.Request( "populateInventory.php",
+        {
+            method: "get",
+            onSuccess: getStacksSuccess,
+        }
+    );
+
+}
+
+function getStacksSuccess(ajax){
+    var stacks = JSON.parse(ajax.responseText);
+    var data = [];
+    eStacks = stacks[Symbol.iterator]();
+    for(let stack of eStacks){
+        getStackReport(stack["tag"]);
+        data[stack["tag"]] = REPORT;
+    }
+    console.log(data);
+}
+
+function getStackReport(tag){
+    new Ajax.Request( "getStackReport.php",
+        {
+            method: "get",
+            parameters:{tag: tag},
+            onSuccess: stackReportSuccess,
+        }
+    );
+}
+
+function stackReportSuccess(ajax){
+    var json = JSON.parse(ajax.responseText);
+    REPORT =  "";
+    if(json.length){
+       for(var i = 0; i < json.length; i++){
+           REPORT += json[i]["report"] + " ";
+       }
+       console.log(REPORT);
+    }
+}

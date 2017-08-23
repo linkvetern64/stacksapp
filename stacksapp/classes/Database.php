@@ -185,7 +185,7 @@ class DB {
 
         try {
             $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table");
+            $stmt = $conn->prepare("SELECT floor,tag FROM $table");
             $stmt->execute();
             $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
@@ -301,4 +301,25 @@ class DB {
         }
 
     }
+
+    public function getStackReports($tag){
+        $table = "LITS_Stack_Reports";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT report FROM $table WHERE tag = '$tag'");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
+
+            return $result;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+    }
 }
+
+
