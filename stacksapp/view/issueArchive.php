@@ -134,6 +134,7 @@ Load Old Reports
                 <!-- Reports populate from reports.js -->
             </div>
             <div class="modal-footer">
+                <div id="report-by"></div>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

@@ -198,7 +198,7 @@ function loadReport(date){
  */
 function loadSuccess(ajax){
     var reports = JSON.parse(ajax.responseText);
-
+    var by = document.getElementById("report-by");
     var container = document.getElementById("report-body");
     var title = document.getElementById("modalLabel");
 
@@ -214,7 +214,7 @@ function loadSuccess(ajax){
         var entry = document.createElement('div');
         var tag = reports[i]["tag"];
         var report = reports[i]["report"];
-        var status = "Resolved";
+        var user = reports[0]["user"];
 
         entry.className = 'report-listing';
         entry.innerHTML =
@@ -224,4 +224,7 @@ function loadSuccess(ajax){
             "</div>";
         container.appendChild(entry);
     }
+
+    /* Sets who wrote the report */
+    by.innerHTML = "By: " + reports[0]["user"];
 }

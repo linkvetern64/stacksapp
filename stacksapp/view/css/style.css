@@ -30,6 +30,14 @@ body{
 
 /* -------------------------- For issueArchive.php -------------------- */
 
+#report-by{
+    display:inline-block;
+    position:relative;
+    font-size:1.4em;
+    float:left;
+    font-style:italic;
+}
+
 .report-listing{
     border:1px solid black;
     width:90%;
