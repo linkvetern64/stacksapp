@@ -119,6 +119,12 @@ function setData(tag, floor){
 }
 
 function submit(type){
+    if(!document.getElementById("comment").value.length){
+        return false;
+    }
+
+
+
     var tag = data["tag"];
     var floor = data["floor"];
 

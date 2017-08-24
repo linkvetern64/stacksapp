@@ -139,8 +139,8 @@ $campusID = $_SERVER['umbccampusid'];
                 <textarea id="comment" style="min-width:100%;height:150px;" placeholder="Enter text here..."></textarea>
             </div>
             <div class="modal-footer" style="text-align:center;">
-                <button type="button" onclick="submit('resolved');" class="btn btn-success" data-dismiss="modal">Resolved</button>
-                <button type="button" onclick="submit('reported');" class="btn btn-info" data-dismiss="modal">Report</button>
+                <button type="button" onclick="return submit('resolved');" class="btn btn-success" data-dismiss="modal">Resolved</button>
+                <button type="button" onclick="return submit('reported');" class="btn btn-info" data-dismiss="modal">Report</button>
             </div>
         </div>
     </div>
