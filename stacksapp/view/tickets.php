@@ -60,7 +60,9 @@ if(!isMobile($_SERVER["HTTP_USER_AGENT"])){
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
-
+            $( window ).on( "load", function() {
+                populateTickets();
+            });
         });
     </script>
 </head>
@@ -108,54 +110,7 @@ if(!isMobile($_SERVER["HTTP_USER_AGENT"])){
 <!-- Display Content -->
 <div id="container-tickets" class="container">
 <!-- Ticket container here -->
-    <div class="ticket-listing">
-        <div class="ticket-title">LIB1PC01</div>
-        <div class="ticket-body">Missing keyboard</div>
-        <div class="ticket-actions">
-            <button class="btn btn-info btn-align-left">Assign</button>
-            <button class="btn btn-success btn-align-right">Resolve</button>
-        </div>
-    </div>
-    <div class="ticket-listing">
-        <div class="ticket-title">LIB1PC01</div>
-        <div class="ticket-body">test</div>
-        <div class="ticket-actions">
-            <button class="btn btn-info btn-align-left">Assign</button>
-            <button class="btn btn-success btn-align-right">Resolve</button>
-        </div>
-    </div>
-    <div class="ticket-listing">
-        <div class="ticket-title">LIB1PC01</div>
-        <div class="ticket-body">test</div>
-        <div class="ticket-actions">
-            <button class="btn btn-info btn-align-left">Assign</button>
-            <button class="btn btn-success btn-align-right">Resolve</button>
-        </div>
-    </div>
-    <div class="ticket-listing">
-        <div class="ticket-title">LIB1PC01</div>
-        <div class="ticket-body">test</div>
-        <div class="ticket-actions">
-            <button class="btn btn-info btn-align-left">Assign</button>
-            <button class="btn btn-success btn-align-right">Resolve</button>
-        </div>
-    </div>
-    <div class="ticket-listing">
-        <div class="ticket-title">LIB1PC01</div>
-        <div class="ticket-body">test</div>
-        <div class="ticket-actions">
-            <button class="btn btn-info btn-align-left">Assign</button>
-            <button class="btn btn-success btn-align-right">Resolve</button>
-        </div>
-    </div>
-    <div class="ticket-listing">
-        <div class="ticket-title">LIB1PC01</div>
-        <div class="ticket-body">test</div>
-        <div class="ticket-actions">
-            <button class="btn btn-info btn-align-left">Assign</button>
-            <button class="btn btn-success btn-align-right">Resolve</button>
-        </div>
-    </div>
+
 </div>
 
 <!-- Footer Content -->

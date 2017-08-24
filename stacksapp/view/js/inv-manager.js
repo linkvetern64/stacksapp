@@ -143,6 +143,57 @@ function editFailure(ajax){
 }
 
 /**
+ * populateTickets
+ * @desc
+ * populateTickets will be used as an onload function for tickets.php
+ * this will grab all the unresolved computer reports from the database
+ * and populate this page with actionable listings.
+ */
+function populateTickets(){
+    new Ajax.Request( "getReportedTickets.php",
+        {
+            method: "get",
+            onSuccess: ticketSuccess,
+        }
+    );
+}
+
+function ticketSuccess(ajax){
+    let json = JSON.parse(ajax.responseText);
+    let container = document.getElementById("container-tickets");
+    let reports = json[Symbol.iterator]();
+
+    /*Clears the current populated container*/
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
+
+    for(let report of reports){
+        console.log(report);
+
+        let entry = document.createElement('div');
+        entry.className = 'ticket-listing';
+
+
+        entry.innerHTML =
+                "<div class=\"ticket-title\">"+ report["tag"] +"</div>" +
+                "<div class=\"ticket-body\">"+ report["report"] +"</div>" +
+                "<div class=\"ticket-actions\">"+
+                    "<button class=\"btn btn-info btn-align-left\">Assign</button>" +
+                    "<button class=\"btn btn-success btn-align-right\">Resolve</button>" +
+                "</div>";
+
+        container.appendChild(entry);
+    }
+
+    /*
+
+    * */
+
+
+}
+
+/**
  * submitNewLabels
  * @param floor - The floor you want to update the labels for
  * @desc

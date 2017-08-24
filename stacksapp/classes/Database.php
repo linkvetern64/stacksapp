@@ -320,6 +320,32 @@ class DB {
             return null;
         }
     }
+
+    /**
+     * @name getReportedComputers
+     * @return array|bool|null Returns list of computers which aren't resolved
+     * @desc
+     * This function will query the database for any report which has yet to be resolved.
+     * This function will populate the page of tickets.php
+     */
+    public function getReportedComputers(){
+        $table = "LITS_Stack_Reports";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT * FROM $table WHERE resolved = 0");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
+
+            return $result;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
+        }
+    }
 }
 
 
