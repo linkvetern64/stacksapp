@@ -98,6 +98,16 @@ if(isMobile($_SERVER['HTTP_USER_AGENT'])){
                 <li><a href="issueArchive.php">Archive</a></li>
                 <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
             </ul>
+            <div class="col-sm-3 col-md-3" style="position:relative;display:inline-block;float:right;">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" onkeyup="pageSearch(this.value,'container-inv');" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
@@ -198,5 +208,6 @@ if(isMobile($_SERVER['HTTP_USER_AGENT'])){
 
 <!-- Load scripts at the end -->
 <script src="js/inv-manager.js"></script>
+<script src="js/search.js"></script>
 </body>
 </html>

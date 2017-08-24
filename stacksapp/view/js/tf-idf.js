@@ -1,3 +1,5 @@
+var REPORTS = "";
+
 /**
  * @author Joshua Standiford
  * @desc
@@ -29,30 +31,39 @@ function getReports(){
     new Ajax.Request( "getAllReports.php",
         {
             method: "get",
-            onSuccess: reportSuccess,
+            onSuccess: TF_IDF,
             onFailure: reportFailure
         }
     );
 }
 
-function reportSuccess(ajax){
-    var json = JSON.parse(ajax.responseText);
-    console.log(json);
-}
 
 function reportFailure(ajax){
     console.log(ajax.responseText);
 }
 
+function getData(){
 
+    return data;
+}
 
 /**
  * @TODO Move the files off site, and just call TF_IDF on a whole set of data.
  * @constructor
  */
-function TF_IDF(){
+function TF_IDF(ajax){
+    /* cleans and gathers the data to be parsed by the TF_IDF algorithm */
+    var data = [];
+    let j = JSON.parse(ajax.responseText)[Symbol.iterator]();
+    for(let t of j){
+        if(typeof data[t["tag"]] == 'undefined'){
+            data[t["tag"]] = "";
+        }
+        data[t["tag"]] += t["report"] + " ";
+    }
 
-    getReports();
+    console.log(data);
+    console.log(Object.keys(data));
 
     /*This will eventually be reports pulled from online.*/
     /*@TODO - Each file name is going to be a tag from the inventory.  Then an array will be initiated for every tag the reports
@@ -65,6 +76,7 @@ function TF_IDF(){
     a["microsoft.txt"] = "Microsoft Corporation incorporated on September 22 1993 is a technology company The Company develops licenses and supports a range of software products services and devices The Company 's segments include Productivity and Business Processes Intelligent Cloud and More Personal Computing The Company 's products include operating systems cross-device productivity applications server applications business solution applications desktop and server management tools software development tools video games and training and certification of computer system integrators and developers It also designs manufactures and sells devices including personal computers PCs tablets gaming and entertainment consoles phones other intelligent devices and related accessories that integrate with its cloud-based offerings It offers an array of services including cloud-based solutions that provide customers with software services platforms and content and it provides solution support and consulting services It also delivers online advertising to a global audience Productivity and Business Processes The Company 's Productivity and Business Processes segment consists of products and services in its portfolio of productivity communication and information services spanning a variety of devices and platforms This segment primarily comprises Office Commercial including volume licensing and subscriptions to Office 365 commercial for products and services such as Office Exchange SharePoint and Skype for Business and related Client Access Licenses CALs Office Consumer including Office sold through retail or through an Office 365 consumer subscription and Office Consumer Services including Skype Outlook.com and OneDrive and Dynamics business solutions including Dynamics ERP products Dynamics CRM on-premises and Dynamics CRM Online Its Office Commercial is designed to manage personal team and organizational productivity through a range of products and services Office 365 is its cloud-based service that provides access to Office plus other productivity services Skype is designed to connect friends family clients and colleagues through a variety of devices The Company competes with Adobe Systems Apple Cisco Systems Facebook Google IBM Oracle SAP Infor The Sage Group NetSuite and Salesforce.com Intelligent Cloud The Company 's Intelligent Cloud segment consists of its public private and hybrid server products and cloud services This segment primarily comprises Server products and cloud services including SQL Server Windows Server Visual Studio System Center and related CALs as well as Azure and Enterprise Services including Premier Support Services and Microsoft Consulting Services Its server products are designed to make information technology IT professionals developers and their systems productive and efficient Server software is integrated server infrastructure and middleware designed to support software applications built on the Windows Server operating system This includes the server platform database business intelligence storage management and operations virtualization service-oriented architecture platform security and identity software It also licenses standalone and software development lifecycle tools for software architects developers testers and project managers CALs provide access rights to certain server products including SQL Server and Windows Server and revenue is reported along with the associated server product Azure is a scalable cloud platform with computing networking storage database and management along with advanced services such as analytics and solutions such as Enterprise Mobility Suite Azure includes a platform that helps developers build deploy and manage enterprise mobile Web and Internet of Things applications for any platform or device Azure enables customers to devote more resources to development and use of applications that benefit their organizations rather than managing on-premises hardware and software The Company competes with Hewlett-Packard IBM Oracle Red Hat CA Technologies Apache Linux MySQL PHP SAP BMC VMware Adobe Ruby on Rails Amazon Google and Salesforce.com More Personal Computing The Company 's More Personal Computing segment consists of products and services geared towards harmonizing the interests of end users developers and IT professionals across screens of all sizes This segment primarily comprises Windows including Windows OEM licensing Windows OEM and other non-volume licensing of the Windows operating system volume licensing of the Windows operating system patent licensing Windows Embedded MSN display advertising and Windows Phone licensing Devices including Microsoft Surface Surface phones and PC accessories Gaming including Xbox hardware Xbox Live comprising transactions subscriptions and advertising video games and third-party video game royalties and Search advertising The Company designs manufactures and sells devices such as Surface phones and other intelligent devices as well as PC accessories Its devices are designed to enable people and organizations to connect to the people and content using integrated Microsoft services and Windows Surface is designed to help organizations students and consumers to be more productive Its gaming platform is designed to provide a variety of entertainment through the use of its devices peripherals applications online services and content It offers Xbox 360 and Xbox One The Company 's Xbox Live enables people to connect and share online gaming experiences and is accessible on Xbox consoles Windows-enabled devices and other devices Xbox Live services consist of subscriptions and sales of Xbox Live enabled content as well as advertising and are designed to benefit users by providing access to a network of certified applications and services and to benefit its developer and partner ecosystems by providing access to a large customer base It also designs and sells gaming content to showcase its platform capabilities for Xbox consoles Windows-enabled devices and other devices Search advertising including Bing and Bing Ads is designed to deliver online advertising to a global audience The Company competes with Amazon Apple Google Sony Nintendo Electronic Arts Activision Blizzard and Facebook";
     a["tesla.txt"] = "Tesla Inc formerly Tesla Motors Inc incorporated on July 1 2003 designs develops manufactures and sells fully electric vehicles and energy storage systems as well as installs operates and maintains solar and energy storage products The Company operates through two segments automotive and energy generation and storage The automotive segment includes the design development manufacturing and sales of electric vehicles The energy generation and storage segment includes the design manufacture installation and sale or lease of stationary energy storage products and solar energy systems to residential and commercial customers or sale of electricity generated by its solar energy systems to customers As of December 31 2016 the Company produced and sold two fully electric vehicles the Model S sedan and the Model X sport utility vehicle SUV It also offers Model 3 a sedan designed for the mass market The Company sells vehicles through its own sales and service network It offers energy storage products which includes the 14-kilowatt hour kWh Powerwall 2 with an integrated inverter for residential applications and the 200 kWh Powerpack 2 It also offers bi-directional inverter for commercial industrial and utility applications Model S is a fully electric four-door five-adult passenger sedan that offers compelling range and performance with zero tailpipe emissions It offers performance and all-wheel drive dual motor system options Model S also includes luxury features including a 17-inch touch screen driver interface its autopilot hardware to enable both active safety and convenience features and over-the-air software updates Model X is an all-electric production sport utility vehicle and offers functionality with features such as its fully electric all-wheel drive dual motor system and its autopilot system Model X can seat up to seven adults and incorporates a falcon wing door system for access to the second and third seating rows The Company develops energy storage products for use in homes commercial facilities and utility sites The applications for these battery systems include the provision of backup power grid independence peak demand reduction demand response reducing intermittency of renewable generation and wholesale electric market services The Company 's energy product portfolio includes systems with a range of applications from use in homes to use in large grid-scale projects Powerwall 2 is a 14 kWh rechargeable lithium-ion battery designed to store energy at a home or small commercial facility and can be used for self-consumption of solar power generation and as backup power In addition it offers a 200 kWh Powerpack system which can be used by commercial and industrial customers for peak shaving load shifting self-consumption of solar generation and demand response The Powerpack system is a fully integrated energy storage solution that can be used by utilities to smooth and firm the output of renewable power generation sources provide energy capacity to the grid defer or eliminate the need to upgrade transmission infrastructure and also provide for a range of grid services for utilities For grid-scale applications 200 kWh battery blocks can be grouped together to offer megawatt hours and gigawatt hours installations The Company 's components of its solar energy systems include solar panels that convert sunlight into electrical current inverters that convert the electrical output from the panels to a usable compatible with the electric grid racking that attaches the solar panels to the roof or ground electrical hardware that connects the solar energy system to the electric grid and its monitoring device It also designs and manufactures other system components The Company offers loans and leases for its vehicles in North America Europe and Asia primarily through various financial institutions It also offers financing arrangements directly through its local subsidiaries in certain areas of the United States Germany Canada and the United Kingdom The Company competes with Audi BMW Lexus Mercedes Honda Toyota Daimler Nissan Fiat Ford General Motors Mitsubishi AES Energy Storage LG Chem Samsung Vivint Solar Inc Sunrun Inc Trinity Solar and Sungevity Inc";
 
+    //files will be data's keys
     var files = ["apple.txt", "facebook.txt", "google.txt", "microsoft.txt", "tesla.txt"];
     var size = files.length;
 

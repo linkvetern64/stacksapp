@@ -69,7 +69,7 @@ $campusID = $_SERVER['umbccampusid'];
             //Loads JSON data on browser load
             $(window).on("load", function () {
                 loadData();
-                TF_IDF();
+                getReports();
             });
 
         });
@@ -96,6 +96,16 @@ $campusID = $_SERVER['umbccampusid'];
                 <li><a href="issueArchive.php">Archive</a></li>
                 <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
             </ul>
+            <div class="col-sm-3 col-md-3" style="position:relative;display:inline-block;float:right;">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" onkeyup="pageSearch(this.value,'container-dash');" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
@@ -147,5 +157,6 @@ $campusID = $_SERVER['umbccampusid'];
 <!-- Load scripts at the end -->
 <script src="js/dashboard.js"></script>
 <script src="js/tf-idf.js"></script>
+<script src="js/search.js"></script>
 </body>
 </html>
