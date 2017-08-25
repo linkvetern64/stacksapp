@@ -142,7 +142,6 @@ $campusID = $_SERVER['umbccampusid'];
         <!-- Computer Feed -->
     </div>
 
-    <div class="tag">LIB1PC06</div>
 
     <!-- ADD Inactive Computer chart timeline-->
 </div>
