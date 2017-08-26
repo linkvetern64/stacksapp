@@ -109,13 +109,10 @@ $campusID = $_SERVER['umbccampusid'];
         </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
-                <li class="center"><a href="#1st">1st Floor</a></li>
-                <li class="center"><a href="#2nd">2nd Floor</a></li>
-                <li class="center"><a href="#3rd">3rd Floor</a></li>
-                <li class="center"><a href="#4th">4th Floor</a></li>
-                <li class="center"><a href="#5th">5th Floor</a></li>
-                <li class="center"><a href="#6th">6th Floor</a></li>
-                <li class="center"><a href="#7th">7th Floor</a></li>
+                <li class="center"><a href="index.php">Home</a></li>
+                <li class="center"><a href="inv-manager.php">Update Inventory</a></li>
+                <li class="center"><a href="tickets.php">Tickets</a></li>
+                <li class="center"><a href="issueArchive.php">Archive</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
@@ -132,7 +129,7 @@ $campusID = $_SERVER['umbccampusid'];
     <!-- Content populates here... -->
 
     <!-- Stat box to list broken computers -->
-    <div class="statBox">
+    <div id="statBox">
         <div id="broken"></div>
         --<a style="cursor:pointer;">Expand</a>--
     </div>

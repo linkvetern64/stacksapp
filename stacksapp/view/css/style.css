@@ -139,7 +139,7 @@ body{
     border:1px solid black;
 }
 
-.statBox{
+#statBox{
     display:block;
     position:relative;
     height:auto;
@@ -204,6 +204,28 @@ body{
     border-radius:25px;
     padding:9px;
 }
+
+/* Mobile for index.php */
+@media only screen and (max-width: 767px) {
+    #statBox{
+        float:left;
+        width:100%;
+        min-width:100px;
+    }
+
+    #container-dash{
+        min-width:145px;
+        height:auto;
+    }
+
+    #inactive-feed{
+        width:100%;
+        min-width:100px;
+        float:left;
+    }
+}
+/* End Mobile for index.php */
+
 /* -------------------------- End index.php -------------------------- */
 
 
