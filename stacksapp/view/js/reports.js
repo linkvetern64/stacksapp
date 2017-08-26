@@ -156,20 +156,32 @@ function archiveSuccess(ajax){
     while(container.firstChild){
         container.removeChild(container.firstChild);
     }
-
+    var tmpDate = "";
     for(var i = data.length - 1; data.length >= 0; i--){
 
         var entry = document.createElement('div');
         entry.className = 'report-date';
 
+        tmpDate = upDate(data[i]["date"]);
+
         entry.innerHTML =
-            upDate(data[i]["date"]) +
+            tmpDate +
             "<hr class='hr-higher'>" +
             "-- <a data-toggle=\"modal\" data-target=\"#myModal\" onclick='loadReport(\"" + data[i]["date"] + "\")'>View Report</a> --" +
+            dateCheckEditable(tmpDate) +
             "</hr>";
 
         container.appendChild(entry);
     }
+}
+
+/* This function will allow editing on application if the dates match */
+function dateCheckEditable(date){
+    var n = new Date().toISOString().substring(0,10);
+    if(date.match(upDate(n))){
+        return "<br/>--<a href='stacksCheck.php'>Edit</a>--";
+    }
+    return "";
 }
 
 function archiveFailure(ajax){
