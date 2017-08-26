@@ -525,6 +525,12 @@ li.center{
     font-size:2em;
 }
 
+@media only screen and (max-width: 767px) {
+    #container-inv{
+        width:100%;
+    }
+}
+
 /* -------------------------- end inv-manager.php -------------------------- */
 
 
