@@ -118,12 +118,18 @@ function setData(tag, floor){
     data["floor"] = floor;
 }
 
+/**
+ * submit
+ * @param type - Either resolved or reported
+ * @returns {boolean} If the comment is empty, nothing will be submitted to the database
+ * @desc
+ * This function will check the comment box from the report modal.  Then the report
+ * is sent to the DB via Ajax.
+ */
 function submit(type){
     if(!document.getElementById("comment").value.length){
         return false;
     }
-
-
 
     var tag = data["tag"];
     var floor = data["floor"];
@@ -144,11 +150,25 @@ function submit(type){
     );
 }
 
+/**
+ * submitSuccess
+ * @param ajax
+ * @desc
+ * debug function from submit function
+ */
 function submitSuccess(ajax){
-    console.log("Submitted successfully");
+    /* Used for debug statements */
+    //console.log("Submitted successfully");
 }
 
+/**
+ * submitFailure
+ * @param ajax
+ * @desc
+ * debug function from submit function
+ */
 function submitFailure(ajax){
+    /* Used for debug statements */
     console.log("Error");
     console.log(ajax.responseText);
 }
