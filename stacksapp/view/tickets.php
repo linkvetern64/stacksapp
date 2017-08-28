@@ -82,7 +82,7 @@ if(!isMobile($_SERVER["HTTP_USER_AGENT"])){
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php">Dashboard</a></li>
                 <li><a href="inv-manager.php">Update Inventory</a></li>
                 <li><a href="tickets.php">Tickets</a></li>
                 <li><a href="issueArchive.php">Archive</a></li>
@@ -102,7 +102,7 @@ if(!isMobile($_SERVER["HTTP_USER_AGENT"])){
 
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
-                <li class="center"><a href="index.php">Home</a></li>
+                <li class="center"><a href="index.php">Dashboard</a></li>
                 <li class="center"><a href="inv-manager.php">Update Inventory</a></li>
                 <li class="center"><a href="tickets.php">Tickets</a></li>
                 <li class="center"><a href="issueArchive.php">Archive</a></li>
