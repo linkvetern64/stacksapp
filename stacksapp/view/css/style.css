@@ -380,6 +380,12 @@ li.center{
     position:relative;
     float:left;
 }
+
+/* Modal style for mobile stacksCheck reporting  */
+#comment{
+    min-width:100%;
+    height:120px;
+}
 /* -------------------------- end stacksCheck.php -------------------------- */
 
 

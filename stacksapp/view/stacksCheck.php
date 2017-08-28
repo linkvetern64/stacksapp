@@ -90,6 +90,7 @@ $campusID = $_SERVER['umbccampusid'];
             <a class="navbar-brand" href="#">LITS Stacks App</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <!--
             <ul class="nav navbar-nav">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="inv-manager.php">Update Inventory</a></li>
@@ -97,6 +98,7 @@ $campusID = $_SERVER['umbccampusid'];
                 <li><a href="issueArchive.php">Archive</a></li>
                 <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
             </ul>
+            -->
         </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
@@ -136,7 +138,7 @@ $campusID = $_SERVER['umbccampusid'];
                 <h4 class="modal-title">Describe the issue:</h4>
             </div>
             <div class="modal-body">
-                <textarea id="comment" style="min-width:100%;height:150px;" placeholder="Enter text here..."></textarea>
+                <textarea id="comment" placeholder="Enter text here..."></textarea>
             </div>
             <div class="modal-footer" style="text-align:center;">
                 <button type="button" onclick="return submit('resolved');" class="btn btn-success" data-dismiss="modal">Resolved</button>
