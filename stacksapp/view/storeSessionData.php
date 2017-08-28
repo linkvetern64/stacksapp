@@ -8,6 +8,7 @@
 session_start();
 require_once(dirname(__FILE__) . '/../load.php');
 $db = new DB();
+date_default_timezone_set('America/New_York'); 
 
 /* Data sent from AJAX */
 $tag = $_GET["tag"];

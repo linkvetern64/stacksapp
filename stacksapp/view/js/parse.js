@@ -159,6 +159,7 @@ function submit(type){
 function submitSuccess(ajax){
     /* Used for debug statements */
     //console.log("Submitted successfully");
+    console.log(ajax.responseText);
 }
 
 /**

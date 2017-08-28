@@ -178,7 +178,7 @@ function archiveSuccess(ajax){
 function dateCheckEditable(dateTmp){
     var date = getDate();
     date = upDate(date["year"] + "-" + date["month"] + "-" + date["day"]);
-    if(dateTmp.match(upDate(date))){
+    if(dateTmp === date){
         return "<br/>--<a href='stacksCheck.php'>Edit</a>--";
     }
     return "";

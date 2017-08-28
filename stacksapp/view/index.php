@@ -141,6 +141,15 @@ $campusID = $_SERVER['umbccampusid'];
 
 
     <!-- ADD Inactive Computer chart timeline-->
+
+    <!-- All student assigned active tickets will be populated here as well for them to resolve on mobile. -->
+
+    <!-- Add website push notifications on new assignment -->
+
+    <!-- Allow users to opt out of notifications or not -->
+    Your open tickets:
+
+    <!-- Create a stats page for machine learning and live statitistics -->
 </div>
 
 <!-- Footer Content -->
