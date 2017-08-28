@@ -1,0 +1,3 @@
+AuthType shibboleth
+ShibRequireSession On
+require user stjones laldana noybert jstephen dspeaks jstand1 jljohnson schechte dangall1 mdagol1 plangley conner joasmith sjparker moskal sullivan hooverj tenney pdawson batjess1
