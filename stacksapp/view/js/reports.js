@@ -163,7 +163,6 @@ function archiveSuccess(ajax){
         entry.className = 'report-date';
 
         tmpDate = upDate(data[i]["date"]);
-
         entry.innerHTML =
             tmpDate +
             "<hr class='hr-higher'>" +
@@ -176,9 +175,10 @@ function archiveSuccess(ajax){
 }
 
 /* This function will allow editing on application if the dates match */
-function dateCheckEditable(date){
-    var n = new Date().toISOString().substring(0,10);
-    if(date.match(upDate(n))){
+function dateCheckEditable(dateTmp){
+    var date = getDate();
+    date = upDate(date["year"] + "-" + date["month"] + "-" + date["day"]);
+    if(dateTmp.match(upDate(date))){
         return "<br/>--<a href='stacksCheck.php'>Edit</a>--";
     }
     return "";
