@@ -389,8 +389,7 @@ li.center{
 
 @media only screen and (max-width: 767px) {
     #myModal{
-        position:absolute;
-        top:10px;
+        
     }
 }
 /* -------------------------- end stacksCheck.php -------------------------- */

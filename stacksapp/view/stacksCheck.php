@@ -129,7 +129,7 @@ $campusID = $_SERVER['umbccampusid'];
 </div>
 <button class="btn-center-long btn btn-success" onclick="submitReport()">Submit Report</button>
 <!-- Modal -->
-<div class="modal fade fix-center" id="myModal" role="dialog">
+<div class="modal fade sticky-top" id="myModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
