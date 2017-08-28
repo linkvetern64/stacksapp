@@ -386,6 +386,13 @@ li.center{
     min-width:100%;
     height:120px;
 }
+
+@media only screen and (max-width: 767px) {
+    #myModal{
+        position:relative;
+        top:10px;
+    }
+}
 /* -------------------------- end stacksCheck.php -------------------------- */
 
 
