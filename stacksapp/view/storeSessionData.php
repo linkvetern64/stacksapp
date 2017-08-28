@@ -25,7 +25,7 @@ $campusID = $_SERVER['umbccampusid'];
 
 
 /* Data to send to Database */
-$data["user"] = $campusID = "beta_user";
+$data["user"] = $campusID;
 $data["date"] = date("Y-m-d");
 $data["report"] = $comment;
 $data["tag"] = $tag;
