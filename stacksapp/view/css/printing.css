@@ -15,6 +15,14 @@ body {
         content: none !important;
     }
 
+    .page-break {page-break-before: always;}
+
+}
+
+
+thead{
+    text-align:center;
+
 }
 
 table {
@@ -23,10 +31,15 @@ table {
     width: 100%;
 }
 
+tr{
+    height:15px;
+    font-size:.4em;
+}
+
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 2px 0 0 5px;
 }
 
 th{
@@ -44,4 +57,11 @@ tr:nth-child(odd) {
 
 .report{
     width:90%;
+}
+
+#title{
+    border:1px solid black;
+    padding:12px;
+    font-size:1.3em;
+    text-align:center;
 }

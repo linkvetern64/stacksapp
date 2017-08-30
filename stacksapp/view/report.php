@@ -66,29 +66,17 @@ $campusID = $_SERVER['umbccampusid'];
 </head>
 <body>
 
+<div id="title">Stacks Report - <?php echo $_GET["date"];?> - By: Josh</div>
+
 <table id="print-table">
-    <tr>
-        <th class="tag">Tag</th>
-        <th class="report">Report</th>
-    </tr>
-    <tr>
-        <td>Test</td>
-        <td>Test</td>
-    </tr>
-    <tr>
-        <td>Test</td>
-        <td>Test</td>
-    </tr>
-    <tr>
-        <td>Test</td>
-        <td>Test</td>
-    </tr>
-    <tr>
-        <td>Test</td>
-        <td>Test</td>
-    </tr>
+<!-- Reports populated here... -->
 </table>
 
+
+<!-- Page break only works with block objects.  Will put content below on new page -->
+<div class="page-break"></div>
+
+<!-- Load scripts after page is loaded -->
 <script src="js/print.js"></script>
 </body>
 </html>
