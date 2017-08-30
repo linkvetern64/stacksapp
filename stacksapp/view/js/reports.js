@@ -168,7 +168,7 @@ function archiveSuccess(ajax){
             "<hr class='hr-higher'>" +
             "-- <a data-toggle=\"modal\" data-target=\"#myModal\" onclick='loadReport(\"" + data[i]["date"] + "\")'>View Report</a> --" +
             dateCheckEditable(tmpDate) + "<br/>" +
-            "-- <a href='report.php?date="+ tmpDate +"'>Print</a> --" +
+            "-- <a href='report.php?date="+ tmpDate +"' target='_blank'>Print</a> --" +
             "</hr>";
         console.log(tmpDate);
         container.appendChild(entry);

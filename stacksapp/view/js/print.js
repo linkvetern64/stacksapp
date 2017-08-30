@@ -50,6 +50,8 @@ function printSuccess(ajax){
 
     /*Bring up print window once the page has loaded*/
     window.print();
+
+    window.close();
 }
 
 function printFailure(ajax){
