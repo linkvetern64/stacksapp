@@ -52,7 +52,10 @@ function stackSuccess(ajax){
         entry.innerHTML = "<div class='pc-id'>" + tag + "</div>" +
             "<div id='right'>" +
             "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\");' class='btn btn-danger btn-sm inline-btn btn-align-right' data-toggle='modal' data-target='#myModal'>Report</button>" +
-            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-success btn-sm inline-btn  rej btn-align-right'>Checked</button>" +
+            /*
+            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-danger btn-sm inline-btn  rej btn-align-right'><span class='glyphicon glyphicon-remove'></span></button>" +
+            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-success btn-sm inline-btn  rej btn-align-right'><span class='glyphicon glyphicon-ok'></span></button>" +
+            */
             "</div>";
 
         container.appendChild(entry);

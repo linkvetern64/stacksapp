@@ -167,9 +167,10 @@ function archiveSuccess(ajax){
             tmpDate +
             "<hr class='hr-higher'>" +
             "-- <a data-toggle=\"modal\" data-target=\"#myModal\" onclick='loadReport(\"" + data[i]["date"] + "\")'>View Report</a> --" +
-            dateCheckEditable(tmpDate) +
+            dateCheckEditable(tmpDate) + "<br/>" +
+            "-- <a href='report.php?date="+ tmpDate +"'>Print</a> --" +
             "</hr>";
-
+        console.log(tmpDate);
         container.appendChild(entry);
     }
 }
@@ -215,9 +216,10 @@ function loadSuccess(ajax){
     var title = document.getElementById("modalLabel");
 
     //Removes the children from the container
+    /*
     while(container.firstChild){
         container.removeChild(container.firstChild);
-    }
+    }*/
 
     title.innerHTML = "Report: " + upDate(reports[0]["date"]);
 
