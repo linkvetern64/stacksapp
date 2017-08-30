@@ -36,8 +36,9 @@ function printSuccess(ajax){
     var header = document.createElement('tr');
 
     header.innerHTML =  "<th class='tag'>Tag</th>" +
-                        "<th class='report'>Report</th>";
+                        "<th class='report'>Report</th></tr>";
 
+    table.appendChild(header);
 
     for(var i = 0; i < json.length; i++){
         console.log(json[i]);
