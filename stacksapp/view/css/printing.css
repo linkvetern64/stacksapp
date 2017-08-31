@@ -1,7 +1,7 @@
 /* Styles the page size for standard printer paper */
 @page{
     size: auto;
-    margin:0;
+    margin:20px;
 
 }
 
@@ -33,7 +33,7 @@ table {
 
 tr{
     height:15px;
-    font-size:.4em;
+    font-size:.6em;
 }
 
 td, th {
@@ -74,11 +74,12 @@ tr:nth-child(odd) {
 }
 
 .table-col{
-    width:10%;
+    width:18.5%;
     display:inline-block;
     position:relative;
     float:left;
     text-align:center;
+    margin-right:10px;
 }
 
 #print-table-container{

@@ -69,11 +69,11 @@ function pullExistReport(date){
 
 function pullExistSuccess(ajax){
     var json = JSON.parse(ajax.responseText);
-    var iter = Math.ceil(json.length / 60);
-    var COL_RESULTS = 63;
+    var COL_RESULTS = 60;
     var table;
 
     var section = 0;
+
     for(var j = 0; j < json.length; j++){
         //Loads 60 results per column
         if(!(j % COL_RESULTS)){
