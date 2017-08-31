@@ -28,6 +28,10 @@ $campusID = $_SERVER['umbccampusid'];
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >
 
     <!-- Theme CSS -->
+
+    <!-- BootStrap Glyphicons only -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
     <!--<link href="css/styles.css" type="text/css" rel="stylesheet">-->
     <link rel="stylesheet" href="css/printing.css" type="text/css" media="all">
 
@@ -74,7 +78,42 @@ $campusID = $_SERVER['umbccampusid'];
 
 
 <!-- Page break only works with block objects.  Will put content below on new page -->
-<div class="page-break"></div>
+<div id="print-table-container" class="page-break">
+    <div id="title">Stacks Exist - <?php echo $_GET["date"];?> - By: Josh</div>
+
+    <table id="exists-table-1" class="table-col" >
+        <tr>
+            <th class="exist-tag">Tag</th>
+            <th class="checked">Checked</th>
+        </tr>
+    </table >
+    <table id="exists-table-2" class="table-col" >
+        <tr>
+            <th class="exist-tag">Tag</th>
+            <th class="checked">Checked</th>
+        </tr>
+    </table >
+    <table id="exists-table-3" class="table-col" >
+        <tr>
+            <th class="exist-tag">Tag</th>
+            <th class="checked">Checked</th>
+        </tr>
+    </table >
+    <table id="exists-table-4" class="table-col" >
+        <tr>
+            <th class="exist-tag">Tag</th>
+            <th class="checked">Checked</th>
+        </tr>
+    </table >
+    <table id="exists-table-5" class="table-col" >
+        <tr>
+            <th class="exist-tag">Tag</th>
+            <th class="checked">Checked</th>
+        </tr>
+    </table >
+
+
+</div>
 
 <!-- Load scripts after page is loaded -->
 <script src="js/print.js"></script>

@@ -170,7 +170,6 @@ function archiveSuccess(ajax){
             dateCheckEditable(tmpDate) + "<br/>" +
             "-- <a href='report.php?date="+ tmpDate +"' target='_blank'>Print</a> --" +
             "</hr>";
-        console.log(tmpDate);
         container.appendChild(entry);
     }
 }
@@ -228,7 +227,7 @@ function loadSuccess(ajax){
         var entry = document.createElement('div');
         var tag = reports[i]["tag"];
         var report = reports[i]["report"];
-        var user = reports[0]["user"];
+        var campusID = reports[0]["campusID"];
 
         entry.className = 'report-listing';
         entry.innerHTML =
@@ -240,5 +239,5 @@ function loadSuccess(ajax){
     }
 
     /* Sets who wrote the report */
-    by.innerHTML = "By: " + reports[0]["user"];
+    by.innerHTML = "By: " + reports[0]["campusID"];
 }

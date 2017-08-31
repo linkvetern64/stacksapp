@@ -70,6 +70,33 @@ class DB {
         }
     }
 
+    function reportMissing($data){
+        $table = "LITS_Stack_Exists";
+
+        try {
+            $conn = $this->connect();
+
+            $stmt = $conn->prepare("INSERT INTO $table (date, campusID, tag)
+                                VALUES (:date, :campusID, :tag)");
+            $stmt->bindParam(':date', $date);
+            $stmt->bindParam(':campusID', $campusID);
+            $stmt->bindParam(':tag', $tag);
+
+            $date = $data["date"];
+            $campusID = $data["campusID"];
+            $tag = $data["tag"];
+
+            $stmt->execute();
+
+            $conn = null;
+            return true;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return false;
+        }
+    }
+
     /**
      * removeItem
      * @param $id
@@ -243,11 +270,11 @@ class DB {
         try {
             $conn = $this->connect();
 
-            $stmt = $conn->prepare("INSERT INTO $table (date, report, user, tag, floor, resolved)
-                                VALUES (:date, :report, :user, :tag, :floor, :resolved)");
+            $stmt = $conn->prepare("INSERT INTO $table (date, report, campusID, tag, floor, resolved)
+                                VALUES (:date, :report, :campusID, :tag, :floor, :resolved)");
             $stmt->bindParam(':date', $date);
             $stmt->bindParam(':report', $report);
-            $stmt->bindParam(':user', $user);
+            $stmt->bindParam(':campusID', $campusID);
             $stmt->bindParam(':tag', $tag);
             $stmt->bindParam(':floor', $floor);
             $stmt->bindParam(':resolved', $resolved);
@@ -256,7 +283,7 @@ class DB {
 
             $date = $data["date"];
             $report = $data["report"];
-            $user = $data["user"];
+            $campusID = $data["campusID"];
             $tag = $data["tag"];
             $floor = $data["floor"];
             $resolved = $data["resolved"];

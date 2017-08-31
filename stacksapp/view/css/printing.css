@@ -59,9 +59,33 @@ tr:nth-child(odd) {
     width:90%;
 }
 
+.checked{
+    width:10%;
+}
+
+.exist-tag{
+    width:90%;
+}
 #title{
     border:1px solid black;
     padding:12px;
     font-size:1.3em;
+    text-align:center;
+}
+
+.table-col{
+    width:10%;
+    display:inline-block;
+    position:relative;
+    float:left;
+    text-align:center;
+}
+
+#print-table-container{
+    width:100%;
+    height:auto;
+    display:block;
+    position:relative;
+    margin:0 auto;
     text-align:center;
 }

@@ -89,17 +89,6 @@ $campusID = $_SERVER['umbccampusid'];
             </button>
             <a class="navbar-brand" href="#">LITS Stacks App</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <!--
-            <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="inv-manager.php">Update Inventory</a></li>
-                <li><a href="tickets.php">Tickets</a></li>
-                <li><a href="issueArchive.php">Archive</a></li>
-                <li><a href="https://helix.lib.umbc.edu/schedule" target="_blank">Scheduler</a></li>
-            </ul>
-            -->
-        </div><!-- /.nav-collapse -->
         <div id="sub" class="collapse">
             <ul class="nav navbar-nav">
                 <li class="center" data-toggle="collapse" data-target="#sub" onclick="getStacksByFloor(1);"><a >1st Floor</a></li>
@@ -138,11 +127,17 @@ $campusID = $_SERVER['umbccampusid'];
                 <h4 class="modal-title">Describe the issue:</h4>
             </div>
             <div class="modal-body">
-                <textarea id="comment" placeholder="Enter text here..."></textarea>
+                <span class="glyphicon glyphicon-play animation-rotate" data-toggle="collapse" data-target="#comment"></span>&nbsp; Open TextArea <br/>
+                <textarea id="comment" placeholder="Enter text here..." class="collapse"></textarea>
+                <span class="glyphicon glyphicon-play animation-rotate" data-toggle="collapse" data-target="#commonReports"></span>&nbsp; Common Responses <br/>
+                <div id="commonReports" class="collapse">
+                    Network, HDD, Power, Image
+                </div>
             </div>
             <div class="modal-footer" style="text-align:center;">
                 <button type="button" onclick="return submit('resolved');" class="btn btn-success" data-dismiss="modal">Resolved</button>
                 <button type="button" onclick="return submit('reported');" class="btn btn-info" data-dismiss="modal">Report</button>
+                <button type="button" onclick="reportMissing();" class="btn btn-warning" data-dismiss="modal">Missing</button>
             </div>
         </div>
     </div>

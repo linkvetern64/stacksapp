@@ -6,11 +6,8 @@ var data = [];
 
 function submitReport(){
     if(confirm("Are you sure?")){
-        console.log("Submitting report...")
+        console.log("Submitting report...");
         window.location.href = "issueArchive.php";
-    }
-    else {
-        console.log("Failure to Submit");
     }
 }
 
@@ -47,15 +44,12 @@ function stackSuccess(ajax){
     /* Creates the children to be added to the list */
     for(var i = 0; i < stacks.length; i++){
         var entry = document.createElement('div');
-        var tag = stacks[i]["tag"]
+        var tag = stacks[i]["tag"];
         entry.className = 'entry';
         entry.innerHTML = "<div class='pc-id'>" + tag + "</div>" +
             "<div id='right'>" +
             "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\");' class='btn btn-danger btn-sm inline-btn btn-align-right' data-toggle='modal' data-target='#myModal'>Report</button>" +
-            /*
-            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-danger btn-sm inline-btn  rej btn-align-right'><span class='glyphicon glyphicon-remove'></span></button>" +
-            "<button  type='button' onclick='setData(\"" + tag + "\",\"" + FLOOR + "\",\"good\");' class='btn btn-success btn-sm inline-btn  rej btn-align-right'><span class='glyphicon glyphicon-ok'></span></button>" +
-            */
+            //"<button  type='button' class='btn btn-danger btn-sm inline-btn  rej btn-align-right'><span class='glyphicon glyphicon-remove'></span></button>" +
             "</div>";
 
         container.appendChild(entry);
@@ -115,6 +109,13 @@ function changePageTitle(){
     title.innerHTML = name;
 }
 
+/**
+ * setData
+ * @param tag - tag of computer being reported
+ * @param floor - floor of computer being reported
+ * @desc
+ * This function sets local data for user in other functions
+ */
 function setData(tag, floor){
     data = [];
     data["tag"] = tag;
@@ -174,5 +175,61 @@ function submitSuccess(ajax){
 function submitFailure(ajax){
     /* Used for debug statements */
     console.log("Error");
+    console.log(ajax.responseText);
+}
+
+
+/**
+ * getDate
+ * @returns {Date} - associate array with day, month, year indexs
+ * @desc
+ * Creates SQL Date style numbers.  An array is returned
+ * of day, month and year.
+ * Months go from 01 - 12
+ * Days go from 01 - 31
+ * Years will be like 2XXX
+ * ---Unless this is still used 1,000 years in the future (most likely).  Then obviously
+ * the years will be like 3XXX and so on.----
+ */
+function getDate(){
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    (month < 10 && month > 0) ? (month = "0" + month) : month;
+    (day < 10 && day > 0) ? (day = "0" + day) : day;
+
+    date["day"] = day;
+    date["month"] = month;
+    date["year"] = year;
+
+    return date;
+}
+
+/**
+ *
+ */
+function reportMissing(){
+    var tag = data["tag"];
+    var date = getDate();
+    var year = date["year"];
+    var month = date["month"];
+    var day = date["day"];
+
+    date = year + "-" + month + "-" + day;
+    new Ajax.Request( "reportMissing.php",
+        {
+            method: "get",
+            parameters: {tag : tag,
+                        date : date},
+            onSuccess: missingSuccess
+        }
+    );
+}
+
+//Beta function
+function missingSuccess(ajax){
     console.log(ajax.responseText);
 }

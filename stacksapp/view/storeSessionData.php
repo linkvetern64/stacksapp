@@ -21,11 +21,11 @@ $firstName = $_SERVER['givenName'];
 $lastName = $_SERVER['sn'];
 $fullName = $_SERVER['displayName'];
 $mail = $_SERVER['mail'];
-$campusID = $_SERVER['umbccampusid'];
+$campusID = $_SERVER['umbccampusid'] = "test_user";
 
 
 /* Data to send to Database */
-$data["user"] = $campusID;
+$data["campusID"] = $campusID;
 $data["date"] = date("Y-m-d");
 $data["report"] = $comment;
 $data["tag"] = $tag;
