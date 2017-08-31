@@ -70,6 +70,10 @@ class DB {
         }
     }
 
+    /**
+     * @param $data
+     * @return bool
+     */
     function reportMissing($data){
         $table = "LITS_Stack_Exists";
 
@@ -94,6 +98,25 @@ class DB {
         catch(PDOException $e){
             echo $e;
             return false;
+        }
+    }
+
+    public function getMissingReport($date){
+        $table = "LITS_Stack_Exists";
+
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT * FROM $table WHERE date = '" . $date . "'");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            $conn = null;
+
+            return $result;
+        }
+        catch(PDOException $e){
+            echo $e;
+            return null;
         }
     }
 

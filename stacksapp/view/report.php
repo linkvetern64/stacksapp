@@ -14,6 +14,8 @@ $lastName = $_SERVER['sn'];
 $fullName = $_SERVER['displayName'];
 $mail = $_SERVER['mail'];
 $campusID = $_SERVER['umbccampusid'];
+
+$date = $_GET["date"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +65,9 @@ $campusID = $_SERVER['umbccampusid'];
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "load", function() {
                 /* Pull report of date and populate the page with styles */
-                pullReport("<?php echo $_GET["date"]; ?>");
+                getMissingReports("<?php echo $date ?>");
+                pullReport("<?php echo $date ?>");
+                pullExistReport("<?php echo $date ?>");
             });
         });
     </script>
@@ -79,7 +83,7 @@ $campusID = $_SERVER['umbccampusid'];
 
 <!-- Page break only works with block objects.  Will put content below on new page -->
 <div id="print-table-container" class="page-break">
-    <div id="title">Stacks Exist - <?php echo $_GET["date"];?> - By: Josh</div>
+    <div id="title">Stacks Check - <?php echo $_GET["date"];?> - By: Josh</div>
 
     <table id="exists-table-1" class="table-col" >
         <tr>
@@ -111,8 +115,6 @@ $campusID = $_SERVER['umbccampusid'];
             <th class="checked">Checked</th>
         </tr>
     </table >
-
-
 </div>
 
 <!-- Load scripts after page is loaded -->
