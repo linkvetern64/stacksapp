@@ -70,6 +70,7 @@ function pullExistReport(date){
         {
             method: "get",
             parameters: {date : date},
+            timeout: 3000,
             onSuccess: pullExistSuccess
         }
     );
@@ -114,8 +115,8 @@ function pullExistSuccess(ajax){
         table.appendChild(entry);
     }
 
-    window.print();
-    window.close();
+    //window.print();
+    //window.close();
 }
 
 /**
@@ -125,13 +126,13 @@ function pullExistSuccess(ajax){
  * This function queries the DB for the missing computer reports
  */
 function getMissingReports(date){
-    new Ajax.Request( "getMissingReport.php",
-        {
-            method: "get",
-            parameters: {date : date},
-            onSuccess: getMissingSuccess
-        }
-    );
+        new Ajax.Request( "getMissingReport.php",
+            {
+                method: "get",
+                parameters: {date : date},
+                onSuccess: getMissingSuccess
+            }
+        );
 }
 
 /**

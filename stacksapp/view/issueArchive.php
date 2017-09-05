@@ -64,9 +64,9 @@ $campusID = $_SERVER['umbccampusid'];
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
         jQuery(function ($) {
             // The dollar sign will equal jQuery in this scope
-            $( window ).on( "load", function() {
-                getArchives();
+            $( window ).on( "DOMContentLoaded", function() {
                 generateNewReport();
+                //getArchives();
             });
         });
     </script>
@@ -153,7 +153,6 @@ Load Old Reports
 <footer style="text-align:center;font-size:.8em;">
     <p>Created By: Joshua Standiford</p>
 </footer>
-
 
 <!-- Load scripts at the end -->
 <script src="js/reports.js"></script>

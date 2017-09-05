@@ -16,6 +16,9 @@ $mail = $_SERVER['mail'];
 $campusID = $_SERVER['umbccampusid'];
 
 $date = $_GET["date"];
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,12 +65,13 @@ $date = $_GET["date"];
     <script type="text/javascript">
         //var JQ = $.noConflict(); //Need JQUERY.NOCONFLICT();  Otherwise prototypes methods will be overwritten
         jQuery(function ($) {
+
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "load", function() {
                 /* Pull report of date and populate the page with styles */
-                getMissingReports("<?php echo $date ?>");
-                pullReport("<?php echo $date ?>");
-                pullExistReport("<?php echo $date ?>");
+                    getMissingReports("<?php echo $date ?>");
+                    pullReport("<?php echo $date ?>");
+                    pullExistReport("<?php echo $date ?>");
             });
         });
     </script>
@@ -119,6 +123,7 @@ $date = $_GET["date"];
 
 <!-- Load scripts after page is loaded -->
 <script src="js/print.js"></script>
+
 </body>
 </html>
 
