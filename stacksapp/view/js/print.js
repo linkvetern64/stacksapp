@@ -114,9 +114,6 @@ function pullExistSuccess(ajax){
 
         table.appendChild(entry);
     }
-
-    //window.print();
-    //window.close();
 }
 
 /**
@@ -126,6 +123,12 @@ function pullExistSuccess(ajax){
  * This function queries the DB for the missing computer reports
  */
 function getMissingReports(date){
+    //Date follows the standard MM/DD/YYYY
+    date = date.split("/");
+
+    //Will be converted to YYYY-MM-DD
+    date = date[2] + "-" + date[0] + "-" + date[1];
+    
         new Ajax.Request( "getMissingReport.php",
             {
                 method: "get",

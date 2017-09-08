@@ -13,5 +13,4 @@ date_default_timezone_set('America/New_York');
 $date = $_GET["date"];
 
 $result = json_encode($db->getMissingReport($date));
-
 echo $result;

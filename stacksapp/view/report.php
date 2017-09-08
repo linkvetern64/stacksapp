@@ -32,6 +32,10 @@ $date = $_GET["date"];
     <title>Stacks App</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >
 
+
+    <!-- Load scripts after page is loaded -->
+    <script src="js/print.js"></script>
+
     <!-- Theme CSS -->
 
     <!-- BootStrap Glyphicons only -->
@@ -68,10 +72,19 @@ $date = $_GET["date"];
 
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "load", function() {
-                /* Pull report of date and populate the page with styles */
                     getMissingReports("<?php echo $date ?>");
-                    pullReport("<?php echo $date ?>");
-                    pullExistReport("<?php echo $date ?>");
+            });
+            $(document).ready(function(){
+                /* Pull report of date and populate the page with styles */
+                    setTimeout(function(){ 
+                        pullReport("<?php echo $date ?>");
+                        pullExistReport("<?php echo $date ?>")
+                         
+                     }, 300);
+                    setTimeout(function(){
+                        window.print();
+                        window.close();
+                    }, 1000);
             });
         });
     </script>
@@ -121,8 +134,6 @@ $date = $_GET["date"];
     </table >
 </div>
 
-<!-- Load scripts after page is loaded -->
-<script src="js/print.js"></script>
 
 </body>
 </html>
