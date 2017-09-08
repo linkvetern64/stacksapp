@@ -27,6 +27,8 @@ $campusID = $_SERVER['umbccampusid'];
     <title>Stacks App</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >
 
+    <script src="js/reports.js"></script>
+
     <!-- Bootstrap Core CSS -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -66,7 +68,7 @@ $campusID = $_SERVER['umbccampusid'];
             // The dollar sign will equal jQuery in this scope
             $( window ).on( "DOMContentLoaded", function() {
                 generateNewReport();
-                //getArchives();
+                getArchives();
             });
         });
     </script>
@@ -155,7 +157,6 @@ Load Old Reports
 </footer>
 
 <!-- Load scripts at the end -->
-<script src="js/reports.js"></script>
 <script src="js/search.js"></script>
 
 </body>

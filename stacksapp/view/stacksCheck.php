@@ -131,7 +131,11 @@ $campusID = $_SERVER['umbccampusid'];
                 <textarea id="comment" placeholder="Enter text here..." class="collapse"></textarea>
                 <span class="glyphicon glyphicon-play animation-rotate" data-toggle="collapse" data-target="#commonReports"></span>&nbsp; Common Responses <br/>
                 <div id="commonReports" class="collapse">
-                    Network, HDD, Power, Image
+                    <div class="error-suggest">Network</div>
+                    <div class="error-suggest">HDD</div>
+                    <div class="error-suggest">Power</div>
+                    <div class="error-suggest">Misc</div>
+                    <br />
                 </div>
             </div>
             <div class="modal-footer" style="text-align:center;">

@@ -299,6 +299,18 @@ body{
     padding:12px;
 }
 
+.error-suggest{
+    display:inline-block;
+    position: relative;
+    padding:5px;
+    border:1px solid #5bc0de;
+    color:#5bc0de;
+    float:left;
+    border-radius: 5px;
+    margin-right:5px;
+    cursor:pointer;
+}
+
 .btn-center-long{
     width:50%;
     display:block;

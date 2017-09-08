@@ -84,7 +84,7 @@ $date = $_GET["date"];
                     setTimeout(function(){
                         window.print();
                         window.close();
-                    }, 1000);
+                    }, 2000);
             });
         });
     </script>
