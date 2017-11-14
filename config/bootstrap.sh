@@ -23,14 +23,3 @@ echo "127.0.0.1 db.dev" >> /etc/hosts
 
 sudo service apache2 restart
 sudo service mysql restart
-
-#pushd;
-#cd /srv/proj1
-#php migration.php seed
-#popd;
-
-pushd;
-cd /srv/stacksapp
-php database/populate.php
-popd;
-
