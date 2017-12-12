@@ -114,9 +114,20 @@ by clicking on the
 
 A modal will open where users can enter either one entry, or multiple through a semi-colon separated list. 
 
-Testing
--
-   
+-- issueArchive.php --
+
+This page is where the stacks checks occur.  You can click on new report, and a report will be generated on the mobile view.  You then move floor to floor checking and reporting the computers on mobile.  Within 24 hours you can edit the stacks check.  You can also print the report from desktop with an auto-generated report.
+
+
+Milestones / to-do:
+
+Finish printing functionality
+Move DB to own server instance
+Move to MySQL 5.7 for AJAX entries
+Have search function work faster
+Move machine learning algorithm into predictive areas
+Find better solution for JSON stream on dashboard, move away from cURL
+
 
 Known Bugs / Fixes
 -
