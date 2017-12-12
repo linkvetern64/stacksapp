@@ -128,6 +128,10 @@ function TF_IDF(ajax){
         }
         values.sort(sortSecondColumn);
 
+
+        /**
+         * Displays to console, output of ML algorithm
+         */
         console.log("For computer " + files[i]);
         for(var t = 0; t < 5; t++){
             if(typeof values[t] !== 'undefined') {
